@@ -463,7 +463,7 @@ const Footer = () => {
             style: { display: 'flex', gap: '1rem' }
           },
             React.createElement('a', {
-              href: 'https://github.com/ksucpea/bettercanvas',
+              href: 'https://github.com/UseBetterCanvas/bettercanvas',
               target: '_blank',
               rel: 'noopener noreferrer',
               style: {
@@ -474,7 +474,7 @@ const Footer = () => {
               }
             }, 'GitHub'),
             React.createElement('a', {
-              href: 'mailto:ksucpea@gmail.com',
+              href: 'mailto:support@bettercanvas.org',
               style: {
                 color: 'white',
                 opacity: 0.8,
@@ -503,7 +503,7 @@ const Footer = () => {
               }
             }, 'FAQ'),
             React.createElement('a', {
-              href: 'mailto:ksucpea@gmail.com',
+              href: 'mailto:support@bettercanvas.org',
               style: {
                 color: 'white',
                 opacity: 0.8,
@@ -551,6 +551,15 @@ const Footer = () => {
           textAlign: 'center'
         }
       },
+        React.createElement('p', {
+          style: { 
+            opacity: 0.6,
+            fontSize: '0.875rem',
+            maxWidth: '800px',
+            margin: '0 auto 1.5rem',
+            lineHeight: '1.6'
+          }
+        }, 'BetterCanvas is an independent browser extension developed by BetterCanvas, LLC. We are not affiliated with, endorsed by, or sponsored by Instructure, Inc. (the makers of Canvas LMS), any university, college, school district, or educational institution. "Canvas" and "Canvas LMS" are trademarks of Instructure, Inc.; all other product and company names are the property of their respective owners and are used here solely for identification purposes.'),
         React.createElement('p', {
           style: { opacity: 0.6 }
         }, '© 2025 BetterCanvas. Made with ❤️ for students everywhere.')
