@@ -19,7 +19,8 @@ const AnnouncementBar = () => {
       textAlign: 'center',
       fontSize: '0.875rem',
       fontWeight: '600',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+      boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+      margin: 0
     }
   },
     React.createElement('div', { className: 'container' },
@@ -39,7 +40,7 @@ const Hero = () => {
       color: 'white',
       position: 'relative',
       overflow: 'hidden',
-      paddingTop: '60px' // Account for announcement bar
+      paddingTop: '48px' // Account for announcement bar
     }
   },
     // Animated background elements
@@ -320,7 +321,10 @@ const PainToSolution = () => {
 
   return React.createElement('section', {
     className: 'section',
-    style: { background: 'var(--background)' }
+    style: { 
+      background: 'var(--background)',
+      padding: '4rem 0'
+    }
   },
     React.createElement('div', { className: 'container' },
       React.createElement('div', { className: 'text-center mb-2xl' },
@@ -1064,7 +1068,7 @@ const Header = () => {
   return React.createElement('header', {
     style: {
       position: 'fixed',
-      top: '60px', // Always offset by announcement bar
+      top: '48px', // Exact height of announcement bar (0.75rem padding top/bottom + font size)
       left: 0,
       right: 0,
       zIndex: 1000,
@@ -1072,7 +1076,8 @@ const Header = () => {
       backdropFilter: isScrolled ? 'blur(20px)' : 'none',
       borderBottom: isScrolled ? '1px solid var(--border-light)' : 'none',
       transition: 'all var(--transition)',
-      padding: '1rem 0'
+      padding: '1rem 0',
+      margin: 0
     }
   },
     React.createElement('div', { className: 'container' },
