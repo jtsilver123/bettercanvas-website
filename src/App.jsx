@@ -571,7 +571,6 @@ const Footer = () => {
 // Homepage Component (existing components combined)
 const HomePage = () => {
   return React.createElement('div', { className: 'App' },
-    React.createElement(Header),
     React.createElement(Hero),
     React.createElement(Features),
     React.createElement(Installation),
@@ -582,11 +581,14 @@ const HomePage = () => {
 // Main App Component with Router
 function App() {
   return React.createElement(Router, null,
-    React.createElement(Routes, null,
-      React.createElement(Route, { path: '/', element: React.createElement(HomePage) }),
-      React.createElement(Route, { path: '/faq', element: React.createElement(FAQ) }),
-      React.createElement(Route, { path: '/privacy', element: React.createElement(PrivacyPolicy) }),
-      React.createElement(Route, { path: '/terms', element: React.createElement(TermsOfService) })
+    React.createElement('div', null,
+      React.createElement(Header),
+      React.createElement(Routes, null,
+        React.createElement(Route, { path: '/', element: React.createElement(HomePage) }),
+        React.createElement(Route, { path: '/faq', element: React.createElement(FAQ) }),
+        React.createElement(Route, { path: '/privacy', element: React.createElement(PrivacyPolicy) }),
+        React.createElement(Route, { path: '/terms', element: React.createElement(TermsOfService) })
+      )
     )
   )
 }
