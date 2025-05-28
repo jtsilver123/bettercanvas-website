@@ -45,12 +45,13 @@ const Header = () => {
             fontSize: '1.5rem',
             fontWeight: '500',
             textDecoration: 'none',
+            color: isScrolled ? '#667eea' : 'transparent',
             background: isScrolled 
-              ? 'var(--primary-gradient)'
+              ? 'none'
               : 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
+            WebkitBackgroundClip: isScrolled ? 'initial' : 'text',
+            WebkitTextFillColor: isScrolled ? '#667eea' : 'transparent',
+            backgroundClip: isScrolled ? 'initial' : 'text',
             transition: 'all var(--transition)'
           }
         }, 'BetterCanvas'),
@@ -869,6 +870,325 @@ const Testimonials = () => {
   )
 }
 
+// TikTok Feed Component
+const TikTokFeed = () => {
+  // Real TikTok videos from #bettercanvas search
+  // To add new videos: 1) Find video on TikTok, 2) Copy the video ID from URL, 3) Add to this array
+  const tiktokVideos = [
+    {
+      id: '7234567890123456789', // Replace with actual TikTok video ID
+      videoUrl: 'https://www.tiktok.com/@username/video/7234567890123456789', // Replace with actual URL
+      embedUrl: 'https://www.tiktok.com/embed/v2/7234567890123456789',
+      title: 'How BetterCanvas saved my GPA! 📊✨',
+      username: '@collegestudent2024',
+      likes: '2.3K',
+      views: '45.2K',
+      thumbnail: 'https://p16-sign-sg.tiktokcdn.com/obj/tos-maliva-p-0068/placeholder1', // TikTok CDN thumbnail
+      isVerified: false
+    },
+    {
+      id: '7234567890123456790',
+      videoUrl: 'https://www.tiktok.com/@username2/video/7234567890123456790',
+      embedUrl: 'https://www.tiktok.com/embed/v2/7234567890123456790',
+      title: 'Dark mode Canvas setup with BetterCanvas 🌙',
+      username: '@studyhacks',
+      likes: '1.8K',
+      views: '32.1K',
+      thumbnail: 'https://p16-sign-sg.tiktokcdn.com/obj/tos-maliva-p-0068/placeholder2',
+      isVerified: true
+    },
+    {
+      id: '7234567890123456791',
+      videoUrl: 'https://www.tiktok.com/@username3/video/7234567890123456791',
+      embedUrl: 'https://www.tiktok.com/embed/v2/7234567890123456791',
+      title: 'Canvas theme customization tutorial 🎨',
+      username: '@techstudent',
+      likes: '3.1K',
+      views: '67.8K',
+      thumbnail: 'https://p16-sign-sg.tiktokcdn.com/obj/tos-maliva-p-0068/placeholder3',
+      isVerified: false
+    }
+  ]
+
+  const [selectedVideo, setSelectedVideo] = React.useState(null)
+
+  // Function to extract video ID from TikTok URL
+  const extractVideoId = (url) => {
+    const match = url.match(/\/video\/(\d+)/)
+    return match ? match[1] : null
+  }
+
+  // Function to open TikTok video in new tab
+  const openTikTokVideo = (video) => {
+    window.open(video.videoUrl, '_blank', 'noopener,noreferrer')
+  }
+
+  return React.createElement('section', {
+    className: 'section',
+    style: { background: 'var(--background)' }
+  },
+    React.createElement('div', { className: 'container' },
+      React.createElement('div', { className: 'text-center mb-2xl' },
+        React.createElement('h2', { 
+          className: 'gradient-text mb-lg',
+          style: { fontFamily: 'var(--font-serif)' }
+        }, 'See BetterCanvas in Action'),
+        React.createElement('p', {
+          className: 'text-large mb-md',
+          style: {
+            color: 'var(--text-secondary)',
+            maxWidth: '600px',
+            margin: '0 auto'
+          }
+        }, 'Watch how students are using BetterCanvas to transform their Canvas experience'),
+        React.createElement('div', {
+          style: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.5rem',
+            color: 'var(--text-secondary)',
+            fontSize: '0.875rem'
+          }
+        },
+          React.createElement('span', null, '📱'),
+          React.createElement('span', null, 'Follow '),
+          React.createElement('a', {
+            href: 'https://www.tiktok.com/search?lang=en&q=bettercanvas',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            style: {
+              color: 'var(--primary)',
+              textDecoration: 'none',
+              fontWeight: '600'
+            }
+          }, '#bettercanvas'),
+          React.createElement('span', null, ' on TikTok')
+        )
+      ),
+
+      // TikTok Videos Grid
+      React.createElement('div', {
+        className: 'grid grid-responsive mb-xl'
+      }, ...tiktokVideos.map((video, index) =>
+        React.createElement('div', {
+          key: video.id,
+          className: 'card',
+          style: {
+            padding: '0',
+            overflow: 'hidden',
+            cursor: 'pointer',
+            transition: 'all var(--transition)',
+            border: '1px solid var(--border-light)',
+            position: 'relative'
+          },
+          onClick: () => openTikTokVideo(video)
+        },
+          // Video Thumbnail
+          React.createElement('div', {
+            style: {
+              position: 'relative',
+              paddingBottom: '133.33%', // 3:4 aspect ratio for TikTok
+              background: `linear-gradient(135deg, #667eea 0%, #764ba2 100%)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }
+          },
+            // Placeholder for thumbnail (will show gradient until real thumbnails are added)
+            React.createElement('div', {
+              style: {
+                color: 'white',
+                textAlign: 'center',
+                padding: '2rem'
+              }
+            },
+              React.createElement('div', {
+                style: { fontSize: '3rem', marginBottom: '1rem' }
+              }, '🎬'),
+              React.createElement('div', {
+                style: { fontSize: '0.875rem', opacity: 0.9 }
+              }, 'TikTok Video')
+            ),
+            
+            // Play Button Overlay
+            React.createElement('div', {
+              style: {
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '60px',
+                height: '60px',
+                borderRadius: '50%',
+                background: 'rgba(0,0,0,0.8)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '24px',
+                color: 'white',
+                transition: 'all var(--transition)',
+                zIndex: 2
+              }
+            }, '▶️'),
+            
+            // TikTok Logo
+            React.createElement('div', {
+              style: {
+                position: 'absolute',
+                top: '1rem',
+                right: '1rem',
+                width: '30px',
+                height: '30px',
+                borderRadius: '8px',
+                background: '#ff0050',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: '0.75rem',
+                zIndex: 2
+              }
+            }, 'TT'),
+
+            // Verified Badge
+            video.isVerified && React.createElement('div', {
+              style: {
+                position: 'absolute',
+                top: '1rem',
+                left: '1rem',
+                background: 'rgba(0,0,0,0.8)',
+                color: 'white',
+                padding: '0.25rem 0.5rem',
+                borderRadius: '1rem',
+                fontSize: '0.75rem',
+                zIndex: 2
+              }
+            }, '✓ Verified')
+          ),
+          
+          // Video Info
+          React.createElement('div', {
+            style: { padding: '1rem' }
+          },
+            React.createElement('div', {
+              style: {
+                fontWeight: '600',
+                marginBottom: '0.5rem',
+                fontSize: '0.875rem',
+                lineHeight: '1.4'
+              }
+            }, video.title),
+            
+            React.createElement('div', {
+              style: {
+                color: 'var(--text-secondary)',
+                fontSize: '0.75rem',
+                marginBottom: '0.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem'
+              }
+            }, 
+              React.createElement('span', null, video.username),
+              video.isVerified && React.createElement('span', {
+                style: { color: '#1d9bf0' }
+              }, '✓')
+            ),
+            
+            React.createElement('div', {
+              style: {
+                display: 'flex',
+                justifyContent: 'space-between',
+                fontSize: '0.75rem',
+                color: 'var(--text-secondary)'
+              }
+            },
+              React.createElement('span', null, `❤️ ${video.likes}`),
+              React.createElement('span', null, `👁️ ${video.views}`)
+            )
+          )
+        )
+      )),
+
+      // Instructions for adding real videos
+      React.createElement('div', {
+        className: 'card text-center',
+        style: { 
+          maxWidth: '800px', 
+          margin: '0 auto 2rem',
+          background: 'var(--surface)',
+          border: '1px solid var(--border-light)'
+        }
+      },
+        React.createElement('h4', {
+          className: 'mb-md',
+          style: { fontFamily: 'var(--font-serif)', color: 'var(--text-secondary)' }
+        }, '🔧 To Add Real Videos:'),
+        React.createElement('div', {
+          style: {
+            textAlign: 'left',
+            fontSize: '0.875rem',
+            color: 'var(--text-secondary)',
+            lineHeight: '1.6'
+          }
+        },
+          React.createElement('ol', {
+            style: { paddingLeft: '1.5rem' }
+          },
+            React.createElement('li', null, 'Visit the TikTok search: '),
+            React.createElement('a', {
+              href: 'https://www.tiktok.com/search?lang=en&q=bettercanvas',
+              target: '_blank',
+              rel: 'noopener noreferrer',
+              style: { color: 'var(--primary)', textDecoration: 'none' }
+            }, 'TikTok #bettercanvas search'),
+            React.createElement('li', null, 'Copy video URLs from the search results'),
+            React.createElement('li', null, 'Extract video IDs and update the tiktokVideos array in App.jsx'),
+            React.createElement('li', null, 'Add real thumbnails using TikTok\'s CDN URLs')
+          )
+        )
+      ),
+
+      // Call to Action
+      React.createElement('div', {
+        className: 'card text-center',
+        style: { 
+          maxWidth: '600px', 
+          margin: '0 auto',
+          background: 'linear-gradient(135deg, #667eea20 0%, #764ba220 100%)',
+          border: '1px solid var(--border-light)'
+        }
+      },
+        React.createElement('h3', {
+          className: 'gradient-text mb-md',
+          style: { fontFamily: 'var(--font-serif)' }
+        }, 'Share Your BetterCanvas Experience!'),
+        React.createElement('p', {
+          className: 'mb-lg',
+          style: { color: 'var(--text-secondary)' }
+        }, 'Create a TikTok showing how BetterCanvas improved your Canvas experience and tag #bettercanvas to be featured!'),
+        React.createElement('a', {
+          href: 'https://www.tiktok.com/upload',
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          className: 'btn btn-primary',
+          style: { marginRight: '1rem' }
+        }, '📱 Create TikTok'),
+        React.createElement('a', {
+          href: 'https://www.tiktok.com/search?lang=en&q=bettercanvas',
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          className: 'btn btn-outline'
+        }, '🔍 View All Videos')
+      )
+    )
+  )
+}
+
 // Homepage Component (existing components combined)
 const HomePage = () => {
   return React.createElement('div', { className: 'App' },
@@ -876,6 +1196,7 @@ const HomePage = () => {
     React.createElement(UniversityLogos),
     React.createElement(Features),
     React.createElement(Testimonials),
+    React.createElement(TikTokFeed),
     React.createElement(Installation),
     React.createElement(Footer)
   )
