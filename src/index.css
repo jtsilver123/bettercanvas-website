@@ -486,4 +486,14 @@ a:focus,
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* University Logo Hover Effects */
+.university-logo:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15) !important;
+}
+
+.university-logo:hover .logo-circle {
+  transform: scale(1.1);
 } 

@@ -75,6 +75,17 @@ const Header = () => {
             }
           }, 'FAQ'),
           React.createElement('a', {
+            href: 'https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh/reviews',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            style: {
+              textDecoration: 'none',
+              color: 'var(--text-primary)',
+              fontWeight: '500',
+              transition: 'color var(--transition)'
+            }
+          }, 'Reviews'),
+          React.createElement('a', {
             href: '#installation',
             style: {
               textDecoration: 'none',
@@ -617,9 +628,18 @@ const Footer = () => {
 // University Logos Section
 const UniversityLogos = () => {
   const universities = [
-    'Harvard University', 'Stanford University', 'MIT', 'UC Berkeley', 
-    'UCLA', 'University of Michigan', 'NYU', 'Georgia Tech',
-    'UT Austin', 'University of Washington', 'Duke University', 'Northwestern'
+    { name: 'Harvard University', color: '#A51C30', initials: 'H' },
+    { name: 'Stanford University', color: '#8C1515', initials: 'S' },
+    { name: 'MIT', color: '#750014', initials: 'MIT' },
+    { name: 'UC Berkeley', color: '#003262', initials: 'CAL' },
+    { name: 'UCLA', color: '#2774AE', initials: 'UCLA' },
+    { name: 'University of Michigan', color: '#00274C', initials: 'M' },
+    { name: 'NYU', color: '#57068C', initials: 'NYU' },
+    { name: 'Georgia Tech', color: '#B3A369', initials: 'GT' },
+    { name: 'UT Austin', color: '#BF5700', initials: 'UT' },
+    { name: 'University of Washington', color: '#4B2E83', initials: 'UW' },
+    { name: 'Duke University', color: '#003366', initials: 'DUKE' },
+    { name: 'Northwestern', color: '#4E2A84', initials: 'NU' }
   ]
 
   return React.createElement('section', {
@@ -654,27 +674,64 @@ const UniversityLogos = () => {
           style: {
             display: 'flex',
             animation: 'scroll 30s linear infinite',
-            gap: '3rem'
+            gap: '2rem'
           }
         },
           ...universities.concat(universities).map((uni, index) =>
             React.createElement('div', {
               key: index,
+              className: 'university-logo',
               style: {
                 background: 'white',
-                padding: '1rem 2rem',
-                borderRadius: 'var(--radius-lg)',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-                minWidth: '200px',
+                padding: '1.5rem',
+                borderRadius: 'var(--radius-xl)',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                minWidth: '120px',
+                height: '80px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '0.9rem',
-                fontWeight: '600',
-                color: 'var(--text-primary)',
-                border: '1px solid var(--border-light)'
+                flexDirection: 'column',
+                border: '1px solid var(--border-light)',
+                transition: 'all var(--transition)'
               }
-            }, uni)
+            },
+              // University logo circle
+              React.createElement('div', {
+                className: 'logo-circle',
+                style: {
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  background: uni.color,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '0.5rem',
+                  boxShadow: `0 2px 8px ${uni.color}33`,
+                  transition: 'all var(--transition)'
+                }
+              },
+                React.createElement('span', {
+                  style: {
+                    color: 'white',
+                    fontSize: uni.initials.length > 3 ? '0.6rem' : '0.75rem',
+                    fontWeight: '700',
+                    fontFamily: 'var(--font-sans)'
+                  }
+                }, uni.initials)
+              ),
+              // University name
+              React.createElement('div', {
+                style: {
+                  fontSize: '0.7rem',
+                  fontWeight: '600',
+                  color: 'var(--text-primary)',
+                  textAlign: 'center',
+                  lineHeight: '1.2'
+                }
+              }, uni.name.split(' ').slice(0, 2).join(' '))
+            )
           )
         )
       )
