@@ -14,236 +14,626 @@ const PrivacyPolicy = () => {
         style: { maxWidth: '800px', margin: '0 auto' }
       },
         React.createElement('h1', { 
-          className: 'text-center mb-2xl',
+          className: 'text-center mb-lg',
           style: { fontFamily: 'var(--font-serif)' }
-        }, 'Privacy Policy'),
+        }, 'BetterCanvas — Privacy Policy'),
+        
+        React.createElement('p', { 
+          className: 'text-center text-small mb-2xl',
+          style: { color: 'var(--text-secondary)' }
+        }, 'Last updated: 27 May 2025'),
         
         React.createElement('div', { className: 'card' },
-          React.createElement('p', { 
-            className: 'text-small mb-xl',
-            style: { color: 'var(--text-secondary)' }
-          }, 'Last updated: January 1, 2025'),
-          
           React.createElement('div', { style: { lineHeight: '1.7' } },
             
-            // Introduction
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 1. Who We Are
             React.createElement('section', { className: 'mb-xl' },
               React.createElement('h2', { 
                 className: 'mb-md',
                 style: { fontFamily: 'var(--font-serif)' }
-              }, 'Introduction'),
-              React.createElement('p', { className: 'mb-md' }, 
-                'BetterCanvas ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website bettercanvas.org and use our browser extension.'
+              }, '1. Who We Are'),
+              React.createElement('p', { className: 'mb-md' },
+                'BetterCanvas ("BetterCanvas," "we," "our," or "us") develops a Chrome/Firefox extension and related web services that enhance the Canvas LMS experience for students. This Privacy Policy explains how we collect, use, store, and disclose information when you:'
+              ),
+              React.createElement('ul', { 
+                className: 'mb-md',
+                style: { paddingLeft: '2rem' }
+              },
+                React.createElement('li', null, 'visit bettercanvas.org,'),
+                React.createElement('li', null, 'install or use the BetterCanvas browser extension, and/or'),
+                React.createElement('li', null, 'opt in to SMS reminders powered by Twilio A2P 10DLC.')
               ),
               React.createElement('p', null,
-                'Please read this Privacy Policy carefully. If you do not agree with the terms of this Privacy Policy, please do not access the site or use our services.'
+                'If you do not agree with the practices described below, please do not use our services.'
               )
             ),
 
-            // Information We Collect
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 2. Information We Collect
             React.createElement('section', { className: 'mb-xl' },
               React.createElement('h2', { 
                 className: 'mb-md',
                 style: { fontFamily: 'var(--font-serif)' }
-              }, 'Information We Collect'),
+              }, '2. Information We Collect'),
               
-              React.createElement('h3', { 
-                className: 'mb-sm',
-                style: { fontSize: '1.25rem', fontFamily: 'var(--font-serif)' }
-              }, '1. Extension Usage Data'),
-              React.createElement('p', { className: 'mb-md' },
-                'Our browser extension may collect limited, anonymized usage data to improve functionality and user experience. This includes:'
+              // Table
+              React.createElement('div', {
+                style: {
+                  overflow: 'auto',
+                  marginBottom: '1.5rem'
+                }
+              },
+                React.createElement('table', {
+                  style: {
+                    width: '100%',
+                    borderCollapse: 'collapse',
+                    fontSize: '0.875rem'
+                  }
+                },
+                  React.createElement('thead', null,
+                    React.createElement('tr', {
+                      style: { background: 'var(--surface)' }
+                    },
+                      React.createElement('th', {
+                        style: {
+                          padding: '0.75rem',
+                          textAlign: 'left',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '600'
+                        }
+                      }, 'Category'),
+                      React.createElement('th', {
+                        style: {
+                          padding: '0.75rem',
+                          textAlign: 'left',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '600'
+                        }
+                      }, 'What We Collect'),
+                      React.createElement('th', {
+                        style: {
+                          padding: '0.75rem',
+                          textAlign: 'left',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '600'
+                        }
+                      }, 'Why We Collect It')
+                    )
+                  ),
+                  React.createElement('tbody', null,
+                    React.createElement('tr', null,
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '500'
+                        }
+                      }, 'Extension Usage Data'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, 'Anonymous feature-usage counts, error logs, performance metrics (no Canvas content).'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, 'Diagnose bugs, improve performance, prioritize new features.')
+                    ),
+                    React.createElement('tr', null,
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '500'
+                        }
+                      }, 'Website Analytics'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, 'Page views, session duration, browser/OS, referral URL (via Google Analytics).'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, 'Understand and improve website experience.')
+                    ),
+                    React.createElement('tr', null,
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '500'
+                        }
+                      }, 'Contact Details'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, 'Email address and message content when you reach out for support.'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, 'Respond to inquiries and provide customer support.')
+                    ),
+                    React.createElement('tr', null,
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          fontWeight: '500'
+                        }
+                      }, 'SMS Opt-in Data'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem'
+                        }
+                      }, 'Mobile phone number, timestamp of consent, notification preferences (e.g., which courses, reminder timing)'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem'
+                        }
+                      }, 'Deliver due-date reminder messages the user explicitly requested.')
+                    )
+                  )
+                )
+              )
+            ),
+
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 3. Information We Do Not Collect
+            React.createElement('section', { className: 'mb-xl' },
+              React.createElement('h2', { 
+                className: 'mb-md',
+                style: { fontFamily: 'var(--font-serif)' }
+              }, '3. Information We Do Not Collect'),
+              React.createElement('ul', { 
+                style: { paddingLeft: '2rem' }
+              },
+                React.createElement('li', null, 'Canvas credentials, grades, assignments, or course content'),
+                React.createElement('li', null, 'Browsing history outside of Canvas'),
+                React.createElement('li', null, 'Any personal data from individuals who have not provided explicit consent')
+              )
+            ),
+
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 4. How We Use Information
+            React.createElement('section', { className: 'mb-xl' },
+              React.createElement('h2', { 
+                className: 'mb-md',
+                style: { fontFamily: 'var(--font-serif)' }
+              }, '4. How We Use Information'),
+              React.createElement('ol', { 
+                className: 'mb-md',
+                style: { paddingLeft: '2rem' }
+              },
+                React.createElement('li', null, 'Provide & Improve Services – enable extension features, fix bugs, optimize performance.'),
+                React.createElement('li', null, 'Transactional Communications – send account-verification emails, password-reset links, and opted-in SMS reminders.'),
+                React.createElement('li', null, 'Customer Support – respond to questions and troubleshoot issues.'),
+                React.createElement('li', null, 'Security & Compliance – detect abuse, enforce Terms of Service, and comply with legal obligations.')
               ),
+              React.createElement('p', null,
+                'We do not use collected data for third-party advertising or sell/rent user information.'
+              )
+            ),
+
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 5. SMS Reminders
+            React.createElement('section', { className: 'mb-xl' },
+              React.createElement('h2', { 
+                className: 'mb-md',
+                style: { fontFamily: 'var(--font-serif)' }
+              }, '5. SMS Reminders (Twilio A2P 10DLC)'),
+              React.createElement('ul', { 
+                style: { paddingLeft: '2rem' }
+              },
+                React.createElement('li', null, 'SMS reminders are opt-in only. Users must (i) enter their phone number and (ii) check an explicit consent box in the extension before messages are enabled.'),
+                React.createElement('li', null, 'First SMS: "You\'ve signed up for assignment reminders from BetterCanvas. Reply HELP for help, STOP to unsubscribe."'),
+                React.createElement('li', null, 'Opt-out at any time by replying STOP or toggling SMS OFF in extension Settings.'),
+                React.createElement('li', null, 'Phone numbers and SMS preference data are stored securely, encrypted at rest, and used solely to deliver the reminders you requested.'),
+                React.createElement('li', null, 'We do not share or sell phone numbers to third parties and do not send marketing/promotional SMS.')
+              )
+            ),
+
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 6. Data Storage & Security
+            React.createElement('section', { className: 'mb-xl' },
+              React.createElement('h2', { 
+                className: 'mb-md',
+                style: { fontFamily: 'var(--font-serif)' }
+              }, '6. Data Storage & Security'),
               React.createElement('ul', { 
                 className: 'mb-md',
                 style: { paddingLeft: '2rem' }
               },
-                React.createElement('li', null, 'Feature usage statistics (which features are used most)'),
-                React.createElement('li', null, 'Error reports and crash logs (to fix bugs)'),
-                React.createElement('li', null, 'Performance metrics (to optimize speed)')
+                React.createElement('li', null, 'All data in transit is encrypted via TLS; sensitive data at rest is encrypted (AES-256).'),
+                React.createElement('li', null, 'Extension settings are stored locally unless cloud sync is enabled.'),
+                React.createElement('li', null, 'Access to production systems is limited to authorized personnel under least-privilege IAM.'),
+                React.createElement('li', null, 'We retain data only as long as necessary to fulfill the purposes outlined in this Policy or to comply with legal requirements.')
               ),
+              React.createElement('p', null,
+                'No internet transmission is 100% secure; however, we use commercially reasonable safeguards to protect your information.'
+              )
+            ),
+
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 7. Third-Party Services
+            React.createElement('section', { className: 'mb-xl' },
+              React.createElement('h2', { 
+                className: 'mb-md',
+                style: { fontFamily: 'var(--font-serif)' }
+              }, '7. Third-Party Services'),
               
-              React.createElement('h3', { 
-                className: 'mb-sm',
-                style: { fontSize: '1.25rem', fontFamily: 'var(--font-serif)' }
-              }, '2. Website Analytics'),
-              React.createElement('p', { className: 'mb-md' },
-                'We use standard web analytics tools to understand how visitors interact with our website:'
+              // Services Table
+              React.createElement('div', {
+                style: {
+                  overflow: 'auto',
+                  marginBottom: '1.5rem'
+                }
+              },
+                React.createElement('table', {
+                  style: {
+                    width: '100%',
+                    borderCollapse: 'collapse',
+                    fontSize: '0.875rem'
+                  }
+                },
+                  React.createElement('thead', null,
+                    React.createElement('tr', {
+                      style: { background: 'var(--surface)' }
+                    },
+                      React.createElement('th', {
+                        style: {
+                          padding: '0.75rem',
+                          textAlign: 'left',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '600'
+                        }
+                      }, 'Service'),
+                      React.createElement('th', {
+                        style: {
+                          padding: '0.75rem',
+                          textAlign: 'left',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '600'
+                        }
+                      }, 'Purpose'),
+                      React.createElement('th', {
+                        style: {
+                          padding: '0.75rem',
+                          textAlign: 'left',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '600'
+                        }
+                      }, 'Policy')
+                    )
+                  ),
+                  React.createElement('tbody', null,
+                    React.createElement('tr', null,
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '500'
+                        }
+                      }, 'Google Analytics'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, 'Website usage analytics'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, React.createElement('a', {
+                        href: 'https://policies.google.com/privacy',
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                        style: { color: 'var(--primary)', textDecoration: 'none' }
+                      }, 'Google Privacy Policy'))
+                    ),
+                    React.createElement('tr', null,
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '500'
+                        }
+                      }, 'Twilio'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, 'SMS delivery (A2P 10DLC)'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, React.createElement('a', {
+                        href: 'https://www.twilio.com/legal/privacy',
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                        style: { color: 'var(--primary)', textDecoration: 'none' }
+                      }, 'Twilio Privacy Policy'))
+                    ),
+                    React.createElement('tr', null,
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)',
+                          fontWeight: '500'
+                        }
+                      }, 'Chrome Web Store / Firefox Add-ons'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, 'Extension distribution'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          borderBottom: '1px solid var(--border-light)'
+                        }
+                      }, 'Google / Mozilla policies apply')
+                    ),
+                    React.createElement('tr', null,
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem',
+                          fontWeight: '500'
+                        }
+                      }, 'GitHub'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem'
+                        }
+                      }, 'Open-source issue tracking'),
+                      React.createElement('td', {
+                        style: {
+                          padding: '0.75rem'
+                        }
+                      }, React.createElement('a', {
+                        href: 'https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement',
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                        style: { color: 'var(--primary)', textDecoration: 'none' }
+                      }, 'GitHub Privacy Statement'))
+                    )
+                  )
+                )
               ),
-              React.createElement('ul', { 
+              React.createElement('p', null,
+                'These providers process data only as our sub-processors and are contractually bound to protect it.'
+              )
+            ),
+
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 8. Your Choices & Rights
+            React.createElement('section', { className: 'mb-xl' },
+              React.createElement('h2', { 
                 className: 'mb-md',
+                style: { fontFamily: 'var(--font-serif)' }
+              }, '8. Your Choices & Rights'),
+              React.createElement('ul', { 
                 style: { paddingLeft: '2rem' }
               },
-                React.createElement('li', null, 'Page views and session duration'),
-                React.createElement('li', null, 'Browser type and version'),
-                React.createElement('li', null, 'Operating system information'),
-                React.createElement('li', null, 'Referring websites')
-              ),
-              
-              React.createElement('h3', { 
-                className: 'mb-sm',
-                style: { fontSize: '1.25rem', fontFamily: 'var(--font-serif)' }
-              }, '3. Contact Information'),
+                React.createElement('li', null, 'Disable Analytics – toggle off in extension Settings.'),
+                React.createElement('li', null, 'Uninstall Extension – remove BetterCanvas at any time.'),
+                React.createElement('li', null, 'Opt Out of SMS – reply STOP or disable in Settings.'),
+                React.createElement('li', null, 'Data Requests – email privacy@bettercanvas.org to access, correct, or delete your data.'),
+                React.createElement('li', null, 'Essential Notices – we may still send critical security or legal notices.')
+              )
+            ),
+
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 9. Children's Privacy
+            React.createElement('section', { className: 'mb-xl' },
+              React.createElement('h2', { 
+                className: 'mb-md',
+                style: { fontFamily: 'var(--font-serif)' }
+              }, '9. Children\'s Privacy'),
               React.createElement('p', null,
-                'When you contact us via email or support channels, we collect the information you provide, including your email address and message content.'
+                'BetterCanvas is not directed to children under 13 and does not knowingly collect their personal information. If we learn we have, we will delete it promptly.'
               )
             ),
 
-            // Information We Do NOT Collect
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 10. International Users
             React.createElement('section', { className: 'mb-xl' },
               React.createElement('h2', { 
                 className: 'mb-md',
                 style: { fontFamily: 'var(--font-serif)' }
-              }, 'Information We Do NOT Collect'),
-              React.createElement('p', { className: 'mb-md' },
-                'We want to be clear about what we do NOT collect:'
-              ),
-              React.createElement('ul', { 
-                style: { paddingLeft: '2rem' }
-              },
-                React.createElement('li', null, 'Personal Canvas data (grades, assignments, courses)'),
-                React.createElement('li', null, 'Login credentials or passwords'),
-                React.createElement('li', null, 'Student identification information'),
-                React.createElement('li', null, 'Canvas content or communications'),
-                React.createElement('li', null, 'Browsing history outside of Canvas')
+              }, '10. International Users'),
+              React.createElement('p', null,
+                'We are based in the United States; your information may be processed and stored there. By using our services, you consent to this transfer.'
               )
             ),
 
-            // How We Use Information
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 11. Changes to This Policy
             React.createElement('section', { className: 'mb-xl' },
               React.createElement('h2', { 
                 className: 'mb-md',
                 style: { fontFamily: 'var(--font-serif)' }
-              }, 'How We Use Your Information'),
-              React.createElement('p', { className: 'mb-md' },
-                'We use the information we collect for the following purposes:'
-              ),
-              React.createElement('ul', { 
-                style: { paddingLeft: '2rem' }
-              },
-                React.createElement('li', null, 'To provide, maintain, and improve our extension'),
-                React.createElement('li', null, 'To fix bugs and technical issues'),
-                React.createElement('li', null, 'To understand user preferences and usage patterns'),
-                React.createElement('li', null, 'To respond to support requests'),
-                React.createElement('li', null, 'To communicate important updates about the extension')
+              }, '11. Changes to This Policy'),
+              React.createElement('p', null,
+                'We may update this Privacy Policy periodically. Changes are effective when posted with a new "Last updated" date. We will notify users of material changes via the extension or email.'
               )
             ),
 
-            // Data Storage and Security
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
+
+            // 12. Contact Us
             React.createElement('section', { className: 'mb-xl' },
               React.createElement('h2', { 
                 className: 'mb-md',
                 style: { fontFamily: 'var(--font-serif)' }
-              }, 'Data Storage and Security'),
-              React.createElement('p', { className: 'mb-md' },
-                'Your privacy and data security are important to us:'
-              ),
-              React.createElement('ul', { 
-                className: 'mb-md',
-                style: { paddingLeft: '2rem' }
-              },
-                React.createElement('li', null, 'All data is stored securely using industry-standard encryption'),
-                React.createElement('li', null, 'Most extension settings are stored locally on your device'),
-                React.createElement('li', null, 'We use secure servers and follow best practices for data protection'),
-                React.createElement('li', null, 'Data is retained only as long as necessary for the purposes outlined')
+              }, '12. Contact Us'),
+              React.createElement('div', { className: 'mb-md' },
+                React.createElement('strong', null, 'BetterCanvas Privacy Team'),
+                React.createElement('br'),
+                'Email: privacy@bettercanvas.org',
+                React.createElement('br'),
+                'Website: https://bettercanvas.org'
               ),
               React.createElement('p', null,
-                'While we strive to protect your information, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security but employ reasonable safeguards.'
+                'If you have questions or concerns about this Policy or our data practices, please contact us—responses typically within two business days.'
               )
             ),
 
-            // Third-Party Services
-            React.createElement('section', { className: 'mb-xl' },
-              React.createElement('h2', { 
-                className: 'mb-md',
-                style: { fontFamily: 'var(--font-serif)' }
-              }, 'Third-Party Services'),
-              React.createElement('p', { className: 'mb-md' },
-                'Our website and extension may use third-party services:'
-              ),
-              React.createElement('ul', { 
-                className: 'mb-md',
-                style: { paddingLeft: '2rem' }
-              },
-                React.createElement('li', null, 'Google Analytics (for website analytics)'),
-                React.createElement('li', null, 'Chrome Web Store and Firefox Add-ons (for distribution)'),
-                React.createElement('li', null, 'GitHub (for open-source development)')
-              ),
-              React.createElement('p', null,
-                'These services have their own privacy policies. We encourage you to review them.'
-              )
-            ),
+            // Section divider
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                margin: '2rem 0',
+                color: 'var(--text-secondary)',
+                fontWeight: '300',
+                fontSize: '1.2rem'
+              }
+            }, '⸻'),
 
-            // Your Rights
-            React.createElement('section', { className: 'mb-xl' },
-              React.createElement('h2', { 
-                className: 'mb-md',
-                style: { fontFamily: 'var(--font-serif)' }
-              }, 'Your Rights and Choices'),
-              React.createElement('p', { className: 'mb-md' },
-                'You have several rights regarding your data:'
-              ),
-              React.createElement('ul', { 
-                style: { paddingLeft: '2rem' }
-              },
-                React.createElement('li', null, 'You can disable analytics collection in the extension settings'),
-                React.createElement('li', null, 'You can uninstall the extension at any time'),
-                React.createElement('li', null, 'You can request information about data we have collected'),
-                React.createElement('li', null, 'You can request deletion of your data'),
-                React.createElement('li', null, 'You can opt out of communications (except critical security updates)')
-              )
-            ),
-
-            // Children's Privacy
-            React.createElement('section', { className: 'mb-xl' },
-              React.createElement('h2', { 
-                className: 'mb-md',
-                style: { fontFamily: 'var(--font-serif)' }
-              }, 'Children\'s Privacy'),
-              React.createElement('p', null,
-                'Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If we learn that we have collected information from a child under 13, we will delete it promptly. If you believe a child has provided us with personal information, please contact us.'
-              )
-            ),
-
-            // International Users
-            React.createElement('section', { className: 'mb-xl' },
-              React.createElement('h2', { 
-                className: 'mb-md',
-                style: { fontFamily: 'var(--font-serif)' }
-              }, 'International Users'),
-              React.createElement('p', null,
-                'If you are accessing our services from outside the United States, please be aware that your information may be transferred to, stored, and processed in the United States. By using our services, you consent to this transfer.'
-              )
-            ),
-
-            // Changes to Privacy Policy
-            React.createElement('section', { className: 'mb-xl' },
-              React.createElement('h2', { 
-                className: 'mb-md',
-                style: { fontFamily: 'var(--font-serif)' }
-              }, 'Changes to This Privacy Policy'),
-              React.createElement('p', null,
-                'We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. You are advised to review this Privacy Policy periodically for any changes.'
-              )
-            ),
-
-            // Contact Information
-            React.createElement('section', null,
-              React.createElement('h2', { 
-                className: 'mb-md',
-                style: { fontFamily: 'var(--font-serif)' }
-              }, 'Contact Us'),
-              React.createElement('p', { className: 'mb-md' },
-                'If you have any questions about this Privacy Policy or our data practices, please contact us:'
-              ),
-              React.createElement('ul', { 
-                style: { paddingLeft: '2rem', listStyle: 'none' }
-              },
-                React.createElement('li', null, 'Email: support@bettercanvas.org'),
-                React.createElement('li', null, 'GitHub: https://github.com/UseBetterCanvas/bettercanvas'),
-                React.createElement('li', null, 'Website: https://bettercanvas.org')
-              )
-            )
+            // Copyright
+            React.createElement('div', {
+              style: {
+                textAlign: 'center',
+                color: 'var(--text-secondary)',
+                fontSize: '0.875rem',
+                marginTop: '2rem'
+              }
+            }, '© 2025 BetterCanvas, Inc. All rights reserved.')
           )
         )
       )
