@@ -33,7 +33,7 @@ const PrivacyPolicy = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Introduction'),
               React.createElement('p', { className: 'mb-md' }, 
-                'Better Canvas ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website bettercanvas.org and use our browser extension.'
+                'BetterCanvas ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website bettercanvas.org and use our browser extension.'
               ),
               React.createElement('p', null,
                 'Please read this Privacy Policy carefully. If you do not agree with the terms of this Privacy Policy, please do not access the site or use our services.'
@@ -239,7 +239,7 @@ const PrivacyPolicy = () => {
               React.createElement('ul', { 
                 style: { paddingLeft: '2rem', listStyle: 'none' }
               },
-                React.createElement('li', null, 'Email: support@bettercanvas.org'),
+                React.createElement('li', null, 'Email: ksucpea@gmail.com'),
                 React.createElement('li', null, 'GitHub: https://github.com/ksucpea/bettercanvas'),
                 React.createElement('li', null, 'Website: https://bettercanvas.org')
               )

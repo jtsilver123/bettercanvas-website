@@ -16,16 +16,16 @@ const FAQ = () => {
       category: "Compatibility Issues",
       questions: [
         {
-          question: "Does Better Canvas work with Canva (the graphic design tool)?",
-          answer: "No, this extension is NOT for Canva the graphic design tool. Better Canvas is specifically designed for Canvas Learning Management System (LMS) used by educational institutions. It will not work with Canva."
+          question: "Does BetterCanvas work with Canva (the graphic design tool)?",
+          answer: "No, this extension is NOT for Canva the graphic design tool. BetterCanvas is specifically designed for Canvas Learning Management System (LMS) used by educational institutions. It will not work with Canva."
         },
         {
-          question: "Can I use Better Canvas with D2L, Moodle, Blackboard Ultra, or other learning platforms?",
-          answer: "No, Better Canvas does NOT work with these learning platforms. It only works with Canvas LMS. These platforms use entirely different systems and are not compatible with our extension."
+          question: "Can I use BetterCanvas with D2L, Moodle, Blackboard Ultra, or other learning platforms?",
+          answer: "No, BetterCanvas does NOT work with these learning platforms. It only works with Canvas LMS. These platforms use entirely different systems and are not compatible with our extension."
         },
         {
           question: "What browsers are supported?",
-          answer: "Better Canvas only supports Chrome and Firefox browsers. We don't currently support Safari (as we don't have access to Mac development), Edge (due to addon store issues), or other browsers like Opera. There are no plans to support additional browsers at this time."
+          answer: "BetterCanvas only supports Chrome and Firefox browsers. We don't currently support Safari (as we don't have access to Mac development), Edge (due to addon store issues), or other browsers like Opera. There are no plans to support additional browsers at this time."
         }
       ]
     },
@@ -34,7 +34,7 @@ const FAQ = () => {
       questions: [
         {
           question: "The extension isn't working - nothing happens when I try to use it",
-          answer: "Here are a few things to check:\n• Make sure you're on a Canvas website (not another learning platform)\n• Verify the URL in the Better Canvas menu matches your Canvas dashboard URL\n• Ensure your dashboard is in card view, not list view (most features only work in card view)\n• Try refreshing the page and checking if the extension is enabled"
+          answer: "Here are a few things to check:\n• Make sure you're on a Canvas website (not another learning platform)\n• Verify the URL in the BetterCanvas menu matches your Canvas dashboard URL\n• Ensure your dashboard is in card view, not list view (most features only work in card view)\n• Try refreshing the page and checking if the extension is enabled"
         },
         {
           question: "My settings keep resetting when I refresh the page",
@@ -42,7 +42,7 @@ const FAQ = () => {
         },
         {
           question: "I'm getting a 'Missing cards or cards not found' error",
-          answer: "If you're using Canvas LMS (not other platforms), try this fix: Go to the Report Issue tab in the Better Canvas menu, scroll down to 'Card Method', and click 'Dashboard'. This tells the extension to retrieve your cards differently. Note: This is experimental and some features like the GPA calculator may be temporarily affected."
+          answer: "If you're using Canvas LMS (not other platforms), try this fix: Go to the Report Issue tab in the BetterCanvas menu, scroll down to 'Card Method', and click 'Dashboard'. This tells the extension to retrieve your cards differently. Note: This is experimental and some features like the GPA calculator may be temporarily affected."
         }
       ]
     },
@@ -90,15 +90,15 @@ const FAQ = () => {
       questions: [
         {
           question: "How accurate is the GPA calculator?",
-          answer: "The GPA calculator is provided for informational purposes only. While we strive for accuracy, Better Canvas does not guarantee precise grade calculations or academic outcomes. Always verify important grade information with your institution's official records."
+          answer: "The GPA calculator is provided for informational purposes only. While we strive for accuracy, BetterCanvas does not guarantee precise grade calculations or academic outcomes. Always verify important grade information with your institution's official records."
         },
         {
-          question: "Can I use Better Canvas for academic purposes safely?",
-          answer: "Yes! Better Canvas is designed to enhance your learning experience, not to facilitate academic dishonesty. The extension helps with organization, visual customization, and productivity. You remain responsible for all academic work submitted through Canvas, and you must comply with your institution's academic integrity policies."
+          question: "Can I use BetterCanvas for academic purposes safely?",
+          answer: "Yes! BetterCanvas is designed to enhance your learning experience, not to facilitate academic dishonesty. The extension helps with organization, visual customization, and productivity. You remain responsible for all academic work submitted through Canvas, and you must comply with your institution's academic integrity policies."
         },
         {
-          question: "Does Better Canvas access my Canvas login information?",
-          answer: "No, Better Canvas does not access or store your Canvas login credentials. Most settings are stored locally on your device. We may collect anonymized usage statistics to improve the extension, but we don't access your personal Canvas data, grades, or assignments."
+          question: "Does BetterCanvas access my Canvas login information?",
+          answer: "No, BetterCanvas does not access or store your Canvas login credentials. Most settings are stored locally on your device. We may collect anonymized usage statistics to improve the extension, but we don't access your personal Canvas data, grades, or assignments."
         }
       ]
     },
@@ -110,8 +110,8 @@ const FAQ = () => {
           answer: "For bug reports, feature requests, or technical support:\n• Email: ksucpea@gmail.com\n• GitHub: Check our open-source repository for known issues\n• Include details about your browser, Canvas instance, and specific steps to reproduce any issues"
         },
         {
-          question: "Is Better Canvas free to use?",
-          answer: "Yes! Better Canvas is completely free and open-source. We don't charge for any features or require subscriptions. The extension is developed and maintained by volunteers to help improve the Canvas experience for students worldwide."
+          question: "Is BetterCanvas free to use?",
+          answer: "Yes! BetterCanvas is completely free and open-source. We don't charge for any features or require subscriptions. The extension is developed and maintained by volunteers to help improve the Canvas experience for students worldwide."
         }
       ]
     }
@@ -137,7 +137,7 @@ const FAQ = () => {
             maxWidth: '600px',
             margin: '0 auto 3rem'
           }
-        }, 'Find answers to common questions about Better Canvas. If you can\'t find what you\'re looking for, feel free to contact our support team.'),
+        }, 'Find answers to common questions about BetterCanvas. If you can\'t find what you\'re looking for, feel free to contact our support team.'),
 
         // FAQ Sections
         React.createElement('div', { className: 'space-y-6' },

@@ -1,6 +1,6 @@
-# Better Canvas Website
+# BetterCanvas Website
 
-A beautiful, modern website for the Better Canvas browser extension. This project is a complete recreation of the original diditupe.dev/bettercanvas website, built from the ground up with React and Vite.
+A beautiful, modern website for the BetterCanvas browser extension. This project is a complete recreation of the original diditupe.dev/bettercanvas website, built from the ground up with React and Vite.
 
 ## 🌟 Features
 
@@ -100,7 +100,7 @@ Based on the [PCMag guide for transferring websites to new domains](https://www.
 
 ## 📧 Contact
 
-For questions about this website project, please contact support@bettercanvas.org
+For questions about this website project, please contact ksucpea@gmail.com
 
 ## 📄 License
 
@@ -108,4 +108,4 @@ MIT License - see LICENSE file for details
 
 ---
 
-*This website showcases the Better Canvas browser extension - a feature-packed extension for Canvas with over 1 million users.* 
+*This website showcases the BetterCanvas browser extension - a feature-packed extension for Canvas with over 1.5 million users.* 

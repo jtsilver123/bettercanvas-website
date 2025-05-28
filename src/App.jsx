@@ -47,7 +47,7 @@ const Header = () => {
             fontWeight: '500',
             textDecoration: 'none'
           }
-        }, 'Better Canvas'),
+        }, 'BetterCanvas'),
         
         React.createElement('div', {
           style: {
@@ -196,7 +196,7 @@ const Hero = () => {
             flexWrap: 'wrap'
           }
         },
-          React.createElement('span', null, '✦ 1M+ Users'),
+          React.createElement('span', null, '✦ 1.5M+ Users'),
           React.createElement('span', null, '✦ 5.0★ Rating'),
           React.createElement('span', null, '✦ Open Source')
         )
@@ -211,7 +211,7 @@ const Features = () => {
     {
       icon: '🌙',
       title: 'Dark Mode',
-      description: 'Better Canvas is your best option for making Canvas dark mode. Choose from presets or create your own palette.'
+      description: 'BetterCanvas is your best option for making Canvas dark mode. Choose from presets or create your own palette.'
     },
     {
       icon: '🎨',
@@ -291,7 +291,7 @@ const Features = () => {
         React.createElement('p', {
           className: 'text-large mb-xl',
           style: { color: 'var(--text-secondary)' }
-        }, 'That\'s not all Better Canvas has. Install it today and give all the features a try!'),
+        }, 'That\'s not all BetterCanvas has. Install it today and give all the features a try!'),
         React.createElement('div', {
           style: {
             display: 'flex',
@@ -334,7 +334,7 @@ const Installation = () => {
             maxWidth: '600px',
             margin: '0 auto'
           }
-        }, 'Install Better Canvas on your favorite browser and start customizing immediately')
+        }, 'Install BetterCanvas on your favorite browser and start customizing immediately')
       ),
 
       React.createElement('div', { className: 'grid grid-2 mb-2xl' },
@@ -350,7 +350,7 @@ const Installation = () => {
           React.createElement('p', {
             className: 'mb-xl',
             style: { color: 'var(--text-secondary)' }
-          }, 'Available on the Chrome Web Store with over 1,000,000+ users'),
+          }, 'Available on the Chrome Web Store with over 1,500,000+ users'),
           React.createElement('a', {
             href: 'https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh',
             target: '_blank',
@@ -393,7 +393,7 @@ const Installation = () => {
               fontFamily: 'var(--font-serif)',
               fontWeight: '500'
             }
-          }, '1M+'),
+          }, '1.5M+'),
           React.createElement('p', {
             style: { color: 'var(--text-secondary)' }
           }, 'Active Users')
@@ -454,11 +454,11 @@ const Footer = () => {
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text'
             }
-          }, 'Better Canvas'),
+          }, 'BetterCanvas'),
           React.createElement('p', {
             className: 'mb-lg',
             style: { opacity: 0.8, lineHeight: '1.6' }
-          }, 'Transforming the Canvas learning experience for over 1 million students worldwide.'),
+          }, 'Transforming the Canvas learning experience for over 1.5 million students worldwide.'),
           React.createElement('div', {
             style: { display: 'flex', gap: '1rem' }
           },
@@ -553,7 +553,7 @@ const Footer = () => {
       },
         React.createElement('p', {
           style: { opacity: 0.6 }
-        }, '© 2025 Better Canvas. Made with ❤️ for students everywhere.')
+        }, '© 2025 BetterCanvas. Made with ❤️ for students everywhere.')
       )
     )
   )

@@ -33,7 +33,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Acceptance of Terms'),
               React.createElement('p', { className: 'mb-md' }, 
-                'Welcome to Better Canvas. These Terms of Service ("Terms") govern your use of the Better Canvas browser extension and website ("Service") operated by the Better Canvas team ("us", "we", or "our").'
+                'Welcome to BetterCanvas. These Terms of Service ("Terms") govern your use of the BetterCanvas browser extension and website ("Service") operated by the BetterCanvas team ("us", "we", or "our").'
               ),
               React.createElement('p', null,
                 'By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of these terms, then you may not access the Service.'
@@ -47,7 +47,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Description of Service'),
               React.createElement('p', { className: 'mb-md' },
-                'Better Canvas is a browser extension that enhances the Canvas Learning Management System (LMS) interface with features including:'
+                'BetterCanvas is a browser extension that enhances the Canvas Learning Management System (LMS) interface with features including:'
               ),
               React.createElement('ul', { 
                 className: 'mb-md',
@@ -71,7 +71,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'User Eligibility'),
               React.createElement('p', { className: 'mb-md' },
-                'To use Better Canvas, you must:'
+                'To use BetterCanvas, you must:'
               ),
               React.createElement('ul', { 
                 className: 'mb-md',
@@ -83,7 +83,7 @@ const TermsOfService = () => {
                 React.createElement('li', null, 'Use the Service in accordance with these Terms')
               ),
               React.createElement('p', null,
-                'You are responsible for ensuring that your use of Better Canvas complies with your institution\'s policies and any applicable laws.'
+                'You are responsible for ensuring that your use of BetterCanvas complies with your institution\'s policies and any applicable laws.'
               )
             ),
 
@@ -94,7 +94,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Acceptable Use Policy'),
               React.createElement('p', { className: 'mb-md' },
-                'You agree to use Better Canvas only for lawful purposes and in a way that does not infringe the rights of others. You agree NOT to:'
+                'You agree to use BetterCanvas only for lawful purposes and in a way that does not infringe the rights of others. You agree NOT to:'
               ),
               React.createElement('ul', { 
                 className: 'mb-md',
@@ -119,7 +119,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Academic Integrity'),
               React.createElement('p', { className: 'mb-md' },
-                'Better Canvas is designed to enhance your learning experience, not to facilitate academic dishonesty. You acknowledge that:'
+                'BetterCanvas is designed to enhance your learning experience, not to facilitate academic dishonesty. You acknowledge that:'
               ),
               React.createElement('ul', { 
                 className: 'mb-md',
@@ -128,10 +128,10 @@ const TermsOfService = () => {
                 React.createElement('li', null, 'You remain responsible for all academic work submitted through Canvas'),
                 React.createElement('li', null, 'Features like GPA calculators are for informational purposes only'),
                 React.createElement('li', null, 'You must comply with your institution\'s academic integrity policies'),
-                React.createElement('li', null, 'Better Canvas does not guarantee grade accuracy or academic outcomes')
+                React.createElement('li', null, 'BetterCanvas does not guarantee grade accuracy or academic outcomes')
               ),
               React.createElement('p', null,
-                'We strongly encourage you to use Better Canvas in a way that supports honest academic work and learning.'
+                'We strongly encourage you to use BetterCanvas in a way that supports honest academic work and learning.'
               )
             ),
 
@@ -142,13 +142,13 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Intellectual Property Rights'),
               React.createElement('p', { className: 'mb-md' },
-                'Better Canvas is an open-source project. The Service and its original content, features, and functionality are owned by the Better Canvas team and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.'
+                'BetterCanvas is an open-source project. The Service and its original content, features, and functionality are owned by the BetterCanvas team and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.'
               ),
               React.createElement('p', { className: 'mb-md' },
                 'Our source code is available under the MIT License on GitHub. You may fork, modify, and distribute the code according to the terms of that license.'
               ),
               React.createElement('p', null,
-                'You retain all rights to any content you create or submit while using Canvas. Better Canvas does not claim ownership of your academic work or Canvas data.'
+                'You retain all rights to any content you create or submit while using Canvas. BetterCanvas does not claim ownership of your academic work or Canvas data.'
               )
             ),
 
@@ -159,7 +159,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Privacy and Data Handling'),
               React.createElement('p', { className: 'mb-md' },
-                'Your privacy is important to us. Our collection and use of your information is governed by our Privacy Policy. By using Better Canvas, you consent to the collection and use of information as outlined in our Privacy Policy.'
+                'Your privacy is important to us. Our collection and use of your information is governed by our Privacy Policy. By using BetterCanvas, you consent to the collection and use of information as outlined in our Privacy Policy.'
               ),
               React.createElement('p', null,
                 'Key points about data handling:'
@@ -181,7 +181,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Service Availability and Modifications'),
               React.createElement('p', { className: 'mb-md' },
-                'We strive to keep Better Canvas available and functional, but we cannot guarantee uninterrupted service. The Service may be temporarily unavailable due to:'
+                'We strive to keep BetterCanvas available and functional, but we cannot guarantee uninterrupted service. The Service may be temporarily unavailable due to:'
               ),
               React.createElement('ul', { 
                 className: 'mb-md',
@@ -204,7 +204,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Disclaimers and Limitations of Liability'),
               React.createElement('p', { className: 'mb-md' },
-                'Better Canvas is provided "as is" without warranties of any kind. We disclaim all warranties, express or implied, including but not limited to:'
+                'BetterCanvas is provided "as is" without warranties of any kind. We disclaim all warranties, express or implied, including but not limited to:'
               ),
               React.createElement('ul', { 
                 className: 'mb-md',
@@ -216,7 +216,7 @@ const TermsOfService = () => {
                 React.createElement('li', null, 'Uninterrupted or error-free operation')
               ),
               React.createElement('p', null,
-                'In no event shall the Better Canvas team be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Service.'
+                'In no event shall the BetterCanvas team be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Service.'
               )
             ),
 
@@ -227,7 +227,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Indemnification'),
               React.createElement('p', null,
-                'You agree to defend, indemnify, and hold harmless the Better Canvas team from and against any claims, damages, costs, and expenses (including attorneys\' fees) arising from or related to your use of the Service or violation of these Terms.'
+                'You agree to defend, indemnify, and hold harmless the BetterCanvas team from and against any claims, damages, costs, and expenses (including attorneys\' fees) arising from or related to your use of the Service or violation of these Terms.'
               )
             ),
 
@@ -238,7 +238,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Third-Party Services and Canvas LMS'),
               React.createElement('p', { className: 'mb-md' },
-                'Better Canvas is an unofficial extension that enhances Canvas LMS. We are not affiliated with Instructure Inc. or Canvas LMS. Your use of Canvas itself is governed by:'
+                'BetterCanvas is an unofficial extension that enhances Canvas LMS. We are not affiliated with Instructure Inc. or Canvas LMS. Your use of Canvas itself is governed by:'
               ),
               React.createElement('ul', { 
                 className: 'mb-md',
@@ -260,7 +260,7 @@ const TermsOfService = () => {
                 style: { fontFamily: 'var(--font-serif)' }
               }, 'Termination'),
               React.createElement('p', { className: 'mb-md' },
-                'You may stop using Better Canvas at any time by uninstalling the extension. We may terminate or suspend your access to the Service immediately, without prior notice, for any breach of these Terms.'
+                'You may stop using BetterCanvas at any time by uninstalling the extension. We may terminate or suspend your access to the Service immediately, without prior notice, for any breach of these Terms.'
               ),
               React.createElement('p', null,
                 'Upon termination, your right to use the Service will cease immediately, but these Terms will remain in effect regarding your prior use.'
@@ -301,7 +301,7 @@ const TermsOfService = () => {
               React.createElement('ul', { 
                 style: { paddingLeft: '2rem', listStyle: 'none' }
               },
-                React.createElement('li', null, 'Email: support@bettercanvas.org'),
+                React.createElement('li', null, 'Email: ksucpea@gmail.com'),
                 React.createElement('li', null, 'GitHub: https://github.com/ksucpea/bettercanvas'),
                 React.createElement('li', null, 'Website: https://bettercanvas.org')
               )
