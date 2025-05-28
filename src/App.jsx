@@ -801,7 +801,7 @@ const DiscordBanner = () => {
       }, 'Get study tips, share themes, and connect with students using BetterCanvas'),
       
       React.createElement('a', {
-        href: 'https://discord.gg/bettercanvas',
+        href: 'https://discord.gg/R8AZRAR3',
         target: '_blank',
         rel: 'noopener noreferrer',
         className: 'btn btn-glass'
@@ -969,11 +969,11 @@ const Footer = () => {
               style: { color: 'white', opacity: 0.8, textDecoration: 'none' }
             }, 'GitHub'),
             React.createElement('a', {
-              href: 'https://discord.gg/bettercanvas',
+              href: 'https://discord.gg/R8AZRAR3',
               target: '_blank',
               rel: 'noopener noreferrer',
               style: { color: 'white', opacity: 0.8, textDecoration: 'none' }
-            }, 'Discord'),
+            }, 'Discord Community'),
             React.createElement('a', {
               href: 'mailto:support@bettercanvas.org',
               style: { color: 'white', opacity: 0.8, textDecoration: 'none' }
@@ -994,7 +994,7 @@ const Footer = () => {
               style: { color: 'white', opacity: 0.8, textDecoration: 'none' }
             }, 'Campus Rep Program'),
             React.createElement('a', {
-              href: 'https://discord.gg/bettercanvas',
+              href: 'https://discord.gg/R8AZRAR3',
               target: '_blank',
               rel: 'noopener noreferrer',
               style: { color: 'white', opacity: 0.8, textDecoration: 'none' }
@@ -1111,6 +1111,15 @@ const Header = () => {
               transition: 'color var(--transition)'
             }
           }, 'Features'),
+          React.createElement('a', {
+            href: '#reviews',
+            style: {
+              textDecoration: 'none',
+              color: isScrolled ? 'var(--text-primary)' : 'rgba(255,255,255,0.9)',
+              fontWeight: '500',
+              transition: 'color var(--transition)'
+            }
+          }, 'Reviews'),
           React.createElement(Link, {
             to: '/faq',
             style: {
@@ -1234,6 +1243,7 @@ const TikTokFeed = () => {
 
   return React.createElement('section', {
     className: 'section',
+    id: 'reviews',
     style: { 
       background: 'linear-gradient(135deg, var(--background) 0%, var(--surface) 100%)',
       position: 'relative',
