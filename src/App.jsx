@@ -6,16 +6,6 @@ import FAQ from './pages/FAQ.jsx'
 
 // Announcement Bar Component
 const AnnouncementBar = () => {
-  const [isVisible, setIsVisible] = useState(true)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsVisible(window.scrollY < 100)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return React.createElement('div', {
     style: {
       position: 'fixed',
@@ -29,8 +19,6 @@ const AnnouncementBar = () => {
       textAlign: 'center',
       fontSize: '0.875rem',
       fontWeight: '600',
-      transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
-      transition: 'transform 0.3s ease',
       boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
     }
   },
@@ -192,14 +180,46 @@ const Hero = () => {
 // University Trust Bar
 const UniversityTrustBar = () => {
   const universities = [
-    { name: 'UT Austin', color: '#BF5700', initials: 'UT' },
-    { name: 'UCLA', color: '#2774AE', initials: 'UCLA' },
-    { name: 'UMich', color: '#00274C', initials: 'M' },
-    { name: 'Stanford', color: '#8C1515', initials: 'S' },
-    { name: 'MIT', color: '#750014', initials: 'MIT' },
-    { name: 'Harvard', color: '#A51C30', initials: 'H' },
-    { name: 'UC Berkeley', color: '#003262', initials: 'CAL' },
-    { name: 'NYU', color: '#57068C', initials: 'NYU' }
+    { 
+      name: 'UT Austin', 
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA4MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjQkY1NzAwIi8+Cjx0ZXh0IHg9IjQwIiB5PSIyNSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VVQgQXVzdGluPC90ZXh0Pgo8L3N2Zz4=',
+      alt: 'University of Texas at Austin'
+    },
+    { 
+      name: 'UCLA', 
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA4MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMjc3NEFFIi8+Cjx0ZXh0IHg9IjQwIiB5PSIyNSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VUNMQTwvdGV4dD4KPC9zdmc+',
+      alt: 'UCLA'
+    },
+    { 
+      name: 'University of Michigan', 
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA4MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMDAyNzRDIi8+Cjx0ZXh0IHg9IjQwIiB5PSIyNSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VU1pY2hpZ2FuPC90ZXh0Pgo8L3N2Zz4=',
+      alt: 'University of Michigan'
+    },
+    { 
+      name: 'Stanford', 
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA4MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjOEMxNTE1Ii8+Cjx0ZXh0IHg9IjQwIiB5PSIyNSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+U3RhbmZvcmQ8L3RleHQ+Cjwvc3ZnPg==',
+      alt: 'Stanford University'
+    },
+    { 
+      name: 'MIT', 
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA4MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNzUwMDE0Ii8+Cjx0ZXh0IHg9IjQwIiB5PSIyNSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TUlUPC90ZXh0Pgo8L3N2Zz4=',
+      alt: 'MIT'
+    },
+    { 
+      name: 'Harvard', 
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA4MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjQTUxQzMwIi8+Cjx0ZXh0IHg9IjQwIiB5PSIyNSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SGFydmFyZDwvdGV4dD4KPC9zdmc+',
+      alt: 'Harvard University'
+    },
+    { 
+      name: 'UC Berkeley', 
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA4MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMDAzMjYyIi8+Cjx0ZXh0IHg9IjQwIiB5PSIyNSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VUMgQmVya2VsZXk8L3RleHQ+Cjwvc3ZnPg==',
+      alt: 'UC Berkeley'
+    },
+    { 
+      name: 'NYU', 
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA4MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNTcwNjhDIi8+Cjx0ZXh0IHg9IjQwIiB5PSIyNSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TllVPC90ZXh0Pgo8L3N2Zz4=',
+      alt: 'NYU'
+    }
   ]
 
   return React.createElement('section', {
@@ -229,48 +249,43 @@ const UniversityTrustBar = () => {
         React.createElement('div', {
           style: {
             display: 'flex',
-            animation: 'scroll 20s linear infinite',
-            gap: '2rem'
+            animation: 'scroll 25s linear infinite',
+            gap: '3rem'
           }
         },
           ...universities.concat(universities).map((uni, index) =>
             React.createElement('div', {
               key: index,
               style: {
-                minWidth: '80px',
-                height: '60px',
+                minWidth: '120px',
+                height: '80px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                filter: 'grayscale(1)',
-                opacity: 0.6,
+                filter: 'grayscale(1) opacity(0.7)',
                 transition: 'all var(--transition)'
+              },
+              onMouseEnter: (e) => {
+                e.currentTarget.style.filter = 'grayscale(0) opacity(1)'
+              },
+              onMouseLeave: (e) => {
+                e.currentTarget.style.filter = 'grayscale(1) opacity(0.7)'
               }
             },
-              React.createElement('div', {
+              React.createElement('img', {
+                src: uni.logo,
+                alt: uni.alt,
                 style: {
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '50%',
-                  background: uni.color,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '0.25rem'
+                  maxWidth: '80px',
+                  maxHeight: '40px',
+                  objectFit: 'contain',
+                  marginBottom: '0.5rem'
                 }
-              },
-                React.createElement('span', {
-                  style: {
-                    color: 'white',
-                    fontSize: '0.6rem',
-                    fontWeight: '700'
-                  }
-                }, uni.initials)
-              ),
+              }),
               React.createElement('div', {
                 style: {
-                  fontSize: '0.65rem',
+                  fontSize: '0.75rem',
                   fontWeight: '600',
                   color: 'var(--text-primary)'
                 }
@@ -1049,7 +1064,7 @@ const Header = () => {
   return React.createElement('header', {
     style: {
       position: 'fixed',
-      top: isScrolled ? 0 : '60px', // Offset by announcement bar when visible
+      top: '60px', // Always offset by announcement bar
       left: 0,
       right: 0,
       zIndex: 1000,
