@@ -849,6 +849,92 @@ const DiscordBanner = () => {
   )
 }
 
+// Post-FAQ Download CTA
+const PostFAQCTA = () => {
+  return React.createElement('section', {
+    style: {
+      background: 'var(--surface)',
+      padding: '3rem 0',
+      textAlign: 'center'
+    }
+  },
+    React.createElement('div', { className: 'container' },
+      React.createElement('div', {
+        className: 'card',
+        style: {
+          maxWidth: '600px',
+          margin: '0 auto',
+          padding: '2.5rem 2rem',
+          background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)',
+          border: '2px solid rgba(102, 126, 234, 0.1)',
+          borderRadius: 'var(--radius-xl)'
+        }
+      },
+        React.createElement('div', {
+          style: { fontSize: '2.5rem', marginBottom: '1rem' }
+        }, '🚀'),
+        
+        React.createElement('h3', {
+          className: 'gradient-text mb-md',
+          style: {
+            fontFamily: 'var(--font-serif)',
+            fontSize: '1.75rem'
+          }
+        }, 'Ready to transform your Canvas?'),
+        
+        React.createElement('p', {
+          className: 'text-large mb-xl',
+          style: {
+            color: 'var(--text-secondary)',
+            marginBottom: '2rem'
+          }
+        }, 'Join 1.6 million students who made the switch. Install BetterCanvas and see the difference instantly.'),
+        
+        React.createElement('div', {
+          style: {
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '1rem',
+            flexWrap: 'wrap'
+          }
+        },
+          React.createElement('a', {
+            href: 'https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            className: 'btn btn-primary',
+            style: {
+              fontSize: '1.1rem',
+              padding: '1rem 2rem',
+              fontWeight: '600'
+            }
+          }, '🌐 Add to Chrome'),
+          
+          React.createElement('a', {
+            href: 'https://addons.mozilla.org/en-US/firefox/addon/bettercanvas/',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            className: 'btn btn-outline',
+            style: {
+              fontSize: '1.1rem',
+              padding: '1rem 2rem',
+              fontWeight: '600'
+            }
+          }, '🦊 Add to Firefox')
+        ),
+        
+        React.createElement('div', {
+          style: {
+            marginTop: '1.5rem',
+            fontSize: '0.875rem',
+            color: 'var(--text-secondary)'
+          }
+        }, '✨ Free forever • ⚡ Installs in seconds • 🔒 100% secure')
+      )
+    )
+  )
+}
+
 // FAQ Accordion
 const FAQAccordion = () => {
   const [openIndex, setOpenIndex] = useState(null)
@@ -1198,6 +1284,7 @@ const HomePage = () => {
     React.createElement(FreePremiumComparison),
     React.createElement(DiscordBanner),
     React.createElement(FAQAccordion),
+    React.createElement(PostFAQCTA),
     React.createElement(FinalCTA),
     React.createElement(Footer)
   )
