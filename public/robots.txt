@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bettercanvas.org/sitemap.xml
+
+# Better Canvas - Canvas Learning Management System Extension
+# Personalize your Canvas dashboard with dark mode, themes, and productivity features 
