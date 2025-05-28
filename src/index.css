@@ -137,6 +137,15 @@ p {
   min-height: 100vh;
 }
 
+/* Spacing Utilities */
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
 /* Button Components */
 .btn {
   display: inline-flex;
@@ -259,6 +268,31 @@ p {
 .card-feature:nth-child(5)::before { background: var(--warning-gradient); }
 .card-feature:nth-child(6)::before { background: var(--primary-gradient); }
 
+/* FAQ Specific Styling */
+.faq-item:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question:hover {
+  background: var(--surface) !important;
+}
+
+.faq-answer {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Grid Layouts */
 .grid {
   display: grid;
@@ -372,6 +406,16 @@ p {
   .legal-page h3 {
     font-size: 1.125rem;
   }
+  
+  .faq-question {
+    font-size: 0.9rem !important;
+    padding: 1rem !important;
+  }
+  
+  .faq-answer {
+    padding: 0 1rem 1rem !important;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -415,7 +459,8 @@ p {
 
 /* Focus and Accessibility */
 .btn:focus,
-a:focus {
+a:focus,
+.faq-question:focus {
   outline: 2px solid #667eea;
   outline-offset: 2px;
 }

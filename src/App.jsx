@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import TermsOfService from './pages/TermsOfService.jsx'
+import FAQ from './pages/FAQ.jsx'
 
 // Header Component
 const Header = () => {
@@ -64,6 +65,15 @@ const Header = () => {
               transition: 'color var(--transition)'
             }
           }, 'Features'),
+          React.createElement(Link, {
+            to: '/faq',
+            style: {
+              textDecoration: 'none',
+              color: 'var(--text-primary)',
+              fontWeight: '500',
+              transition: 'color var(--transition)'
+            }
+          }, 'FAQ'),
           React.createElement('a', {
             href: '#installation',
             style: {
@@ -464,7 +474,7 @@ const Footer = () => {
               }
             }, 'GitHub'),
             React.createElement('a', {
-              href: 'mailto:support@bettercanvas.org',
+              href: 'mailto:ksucpea@gmail.com',
               style: {
                 color: 'white',
                 opacity: 0.8,
@@ -472,6 +482,35 @@ const Footer = () => {
                 transition: 'opacity var(--transition)'
               }
             }, 'Support')
+          )
+        ),
+        
+        React.createElement('div', null,
+          React.createElement('h4', {
+            className: 'mb-md',
+            style: { fontFamily: 'var(--font-serif)' }
+          }, 'Support'),
+          React.createElement('div', {
+            style: { display: 'flex', flexDirection: 'column', gap: '0.5rem' }
+          },
+            React.createElement(Link, {
+              to: '/faq',
+              style: {
+                color: 'white',
+                opacity: 0.8,
+                textDecoration: 'none',
+                transition: 'opacity var(--transition)'
+              }
+            }, 'FAQ'),
+            React.createElement('a', {
+              href: 'mailto:ksucpea@gmail.com',
+              style: {
+                color: 'white',
+                opacity: 0.8,
+                textDecoration: 'none',
+                transition: 'opacity var(--transition)'
+              }
+            }, 'Contact Support')
           )
         ),
         
@@ -536,6 +575,7 @@ function App() {
   return React.createElement(Router, null,
     React.createElement(Routes, null,
       React.createElement(Route, { path: '/', element: React.createElement(HomePage) }),
+      React.createElement(Route, { path: '/faq', element: React.createElement(FAQ) }),
       React.createElement(Route, { path: '/privacy', element: React.createElement(PrivacyPolicy) }),
       React.createElement(Route, { path: '/terms', element: React.createElement(TermsOfService) })
     )
