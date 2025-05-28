@@ -40,12 +40,18 @@ const Header = () => {
       },
         React.createElement(Link, {
           to: '/',
-          className: 'gradient-text',
           style: {
             fontFamily: 'var(--font-serif)',
             fontSize: '1.5rem',
             fontWeight: '500',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            background: isScrolled 
+              ? 'var(--primary-gradient)'
+              : 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            transition: 'all var(--transition)'
           }
         }, 'BetterCanvas'),
         
