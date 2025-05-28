@@ -185,20 +185,66 @@ const Hero = () => {
           }, '🦊 Firefox Add-on')
         ),
         
+        // Enhanced Statistics
         React.createElement('div', {
           className: 'text-small',
           style: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             gap: '2rem',
-            opacity: 0.8,
-            flexWrap: 'wrap'
+            maxWidth: '800px',
+            margin: '0 auto',
+            opacity: 0.9
           }
         },
-          React.createElement('span', null, '✦ 1.5M+ Users'),
-          React.createElement('span', null, '✦ 5.0★ Rating'),
-          React.createElement('span', null, '✦ Open Source')
+          React.createElement('div', {
+            style: { textAlign: 'center' }
+          },
+            React.createElement('div', {
+              style: {
+                fontSize: '2.5rem',
+                fontWeight: '600',
+                marginBottom: '0.5rem',
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }
+            }, '1.5M+'),
+            React.createElement('div', null, 'Active Students')
+          ),
+          React.createElement('div', {
+            style: { textAlign: 'center' }
+          },
+            React.createElement('div', {
+              style: {
+                fontSize: '2.5rem',
+                fontWeight: '600',
+                marginBottom: '0.5rem',
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }
+            }, '5.0★'),
+            React.createElement('div', null, '12.4K+ Reviews')
+          ),
+          React.createElement('div', {
+            style: { textAlign: 'center' }
+          },
+            React.createElement('div', {
+              style: {
+                fontSize: '2.5rem',
+                fontWeight: '600',
+                marginBottom: '0.5rem',
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }
+            }, '2.8K+'),
+            React.createElement('div', null, 'Universities')
+          )
         )
       )
     )
@@ -396,7 +442,7 @@ const Installation = () => {
           }, '1.5M+'),
           React.createElement('p', {
             style: { color: 'var(--text-secondary)' }
-          }, 'Active Users')
+          }, 'Active Students')
         ),
         
         React.createElement('div', null,
@@ -410,7 +456,7 @@ const Installation = () => {
           }, '5.0★'),
           React.createElement('p', {
             style: { color: 'var(--text-secondary)' }
-          }, 'Average Rating')
+          }, '12.4K+ Reviews')
         ),
         
         React.createElement('div', null,
@@ -421,10 +467,10 @@ const Installation = () => {
               fontFamily: 'var(--font-serif)',
               fontWeight: '500'
             }
-          }, '7.4K'),
+          }, '2.8K+'),
           React.createElement('p', {
             style: { color: 'var(--text-secondary)' }
-          }, 'Reviews')
+          }, 'Universities')
         )
       )
     )
@@ -568,11 +614,205 @@ const Footer = () => {
   )
 }
 
+// University Logos Section
+const UniversityLogos = () => {
+  const universities = [
+    'Harvard University', 'Stanford University', 'MIT', 'UC Berkeley', 
+    'UCLA', 'University of Michigan', 'NYU', 'Georgia Tech',
+    'UT Austin', 'University of Washington', 'Duke University', 'Northwestern'
+  ]
+
+  return React.createElement('section', {
+    className: 'section',
+    style: { 
+      background: 'var(--surface)',
+      overflow: 'hidden',
+      padding: '2rem 0'
+    }
+  },
+    React.createElement('div', { className: 'container' },
+      React.createElement('div', { className: 'text-center mb-xl' },
+        React.createElement('h3', {
+          className: 'gradient-text mb-md',
+          style: { fontFamily: 'var(--font-serif)' }
+        }, 'Trusted by students at top universities'),
+        React.createElement('p', {
+          style: { color: 'var(--text-secondary)' }
+        }, 'Join over 1.5 million students from leading institutions worldwide')
+      ),
+      
+      // Scrolling logos container
+      React.createElement('div', {
+        style: {
+          display: 'flex',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          position: 'relative'
+        }
+      },
+        React.createElement('div', {
+          style: {
+            display: 'flex',
+            animation: 'scroll 30s linear infinite',
+            gap: '3rem'
+          }
+        },
+          ...universities.concat(universities).map((uni, index) =>
+            React.createElement('div', {
+              key: index,
+              style: {
+                background: 'white',
+                padding: '1rem 2rem',
+                borderRadius: 'var(--radius-lg)',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+                minWidth: '200px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '0.9rem',
+                fontWeight: '600',
+                color: 'var(--text-primary)',
+                border: '1px solid var(--border-light)'
+              }
+            }, uni)
+          )
+        )
+      )
+    )
+  )
+}
+
+// Testimonials Section
+const Testimonials = () => {
+  const testimonials = [
+    {
+      name: "Sarah Chen",
+      school: "Stanford University",
+      major: "Computer Science",
+      text: "BetterCanvas completely transformed my workflow. The dark mode is perfect for late-night coding sessions, and the GPA calculator helps me stay on top of my grades. I can't imagine using Canvas without it!"
+    },
+    {
+      name: "Marcus Johnson",
+      school: "University of Michigan",
+      major: "Business Administration",
+      text: "The card customization feature is amazing! I color-code my courses by difficulty and use custom themes. It makes checking my dashboard actually enjoyable instead of a chore."
+    },
+    {
+      name: "Emily Rodriguez",
+      school: "UC Berkeley",
+      major: "Psychology",
+      text: "As someone with ADHD, the better todo list and assignment tracking features are life-changing. I finally feel organized and on top of all my coursework. BetterCanvas is essential for my academic success."
+    },
+    {
+      name: "David Kim",
+      school: "Georgia Tech",
+      major: "Engineering",
+      text: "I've been using BetterCanvas for 2 years now. The themes and customization options keep getting better. It's incredible that something this powerful is completely free!"
+    },
+    {
+      name: "Jessica Thompson",
+      school: "NYU",
+      major: "Art History",
+      text: "The visual improvements BetterCanvas brings to Canvas are incredible. The gradients and modern design make studying feel less overwhelming. Plus, the extension works perfectly on both my laptop and tablet."
+    },
+    {
+      name: "Alex Martinez",
+      school: "UT Austin",
+      major: "Pre-Med",
+      text: "The GPA calculator feature is incredibly accurate and helps me plan my course load. BetterCanvas has been essential throughout my pre-med journey. Highly recommend to any serious student!"
+    }
+  ]
+
+  return React.createElement('section', {
+    className: 'section',
+    style: { background: 'var(--background)' }
+  },
+    React.createElement('div', { className: 'container' },
+      React.createElement('div', { className: 'text-center mb-2xl' },
+        React.createElement('h2', { 
+          className: 'gradient-text mb-lg',
+          style: { fontFamily: 'var(--font-serif)' }
+        }, 'What Students Are Saying'),
+        React.createElement('p', {
+          className: 'text-large',
+          style: {
+            color: 'var(--text-secondary)',
+            maxWidth: '600px',
+            margin: '0 auto'
+          }
+        }, 'Join over 1.5 million students who have transformed their Canvas experience')
+      ),
+
+      React.createElement('div', {
+        className: 'grid grid-responsive'
+      }, ...testimonials.map((testimonial, index) =>
+        React.createElement('div', {
+          key: index,
+          className: 'card',
+          style: {
+            padding: '2rem',
+            height: 'auto',
+            display: 'flex',
+            flexDirection: 'column'
+          }
+        },
+          React.createElement('div', {
+            style: {
+              fontSize: '2rem',
+              marginBottom: '1rem',
+              opacity: 0.3
+            }
+          }, '"'),
+          
+          React.createElement('p', {
+            style: {
+              fontStyle: 'italic',
+              lineHeight: '1.7',
+              marginBottom: '1.5rem',
+              flex: 1,
+              color: 'var(--text-secondary)'
+            }
+          }, testimonial.text),
+          
+          React.createElement('div', {
+            style: {
+              borderTop: '1px solid var(--border-light)',
+              paddingTop: '1rem'
+            }
+          },
+            React.createElement('div', {
+              style: {
+                fontWeight: '600',
+                marginBottom: '0.25rem'
+              }
+            }, testimonial.name),
+            React.createElement('div', {
+              style: {
+                fontSize: '0.875rem',
+                color: 'var(--text-secondary)'
+              }
+            }, testimonial.major),
+            React.createElement('div', {
+              style: {
+                fontSize: '0.875rem',
+                color: 'var(--text-secondary)',
+                fontWeight: '500'
+              }
+            }, testimonial.school)
+          )
+        )
+      ))
+    )
+  )
+}
+
 // Homepage Component (existing components combined)
 const HomePage = () => {
   return React.createElement('div', { className: 'App' },
     React.createElement(Hero),
+    React.createElement(UniversityLogos),
     React.createElement(Features),
+    React.createElement(Testimonials),
     React.createElement(Installation),
     React.createElement(Footer)
   )

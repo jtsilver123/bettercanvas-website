@@ -100,7 +100,7 @@ Based on the [PCMag guide for transferring websites to new domains](https://www.
 
 ## 📧 Contact
 
-For questions about this website project, please contact ksucpea@gmail.com
+For questions about this website project, please contact support@bettercanvas.org
 
 ## 📄 License
 

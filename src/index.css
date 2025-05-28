@@ -471,4 +471,19 @@ a:focus,
   nav {
     display: none;
   }
+  
+  .btn,
+  .card {
+    box-shadow: none !important;
+  }
+}
+
+/* Scrolling Animation for University Logos */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 } 

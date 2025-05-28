@@ -301,8 +301,8 @@ const TermsOfService = () => {
               React.createElement('ul', { 
                 style: { paddingLeft: '2rem', listStyle: 'none' }
               },
-                React.createElement('li', null, 'Email: ksucpea@gmail.com'),
-                React.createElement('li', null, 'GitHub: https://github.com/ksucpea/bettercanvas'),
+                React.createElement('li', null, 'Email: support@bettercanvas.org'),
+                React.createElement('li', null, 'GitHub: https://github.com/UseBetterCanvas/bettercanvas'),
                 React.createElement('li', null, 'Website: https://bettercanvas.org')
               )
             )

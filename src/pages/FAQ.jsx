@@ -51,7 +51,7 @@ const FAQ = () => {
       questions: [
         {
           question: "There are gaps or areas that aren't dark in dark mode",
-          answer: "Some areas can be hard to target because gaps need to be manually fixed. Try using the dark mode fixer: Go to the 'Edit Dark Mode' tab and look for the dark mode fixer option. Run it on the page to see if it fixes the gaps. If issues persist, please email ksucpea@gmail.com with details about the specific gaps you're seeing."
+          answer: "There are gaps or areas that can be hard to target because gaps need to be manually fixed. Try using the dark mode fixer: Go to the 'Edit Dark Mode' tab and look for the dark mode fixer option. Run it on the page to see if it fixes the gaps. If issues persist, please email support@bettercanvas.org with details about the specific gaps you're seeing."
         },
         {
           question: "My card colors look muted or washed out",
@@ -77,7 +77,7 @@ const FAQ = () => {
       questions: [
         {
           question: "How do I create and submit a custom theme?",
-          answer: "To create a theme you'll need:\n• Card images for your courses\n• Custom dark mode settings (must be unique, not a default preset)\n• Card colors selection\n• Optional: custom fonts\n\nYou don't need all features, but themes must include at least dark mode and card images. Check the 'User Made Themes' section for examples. Once ready, export your theme in the themes tab and email the output to ksucpea@gmail.com with your theme name and preferred credit name."
+          answer: "To create a theme you'll need:\n• Card images for your courses\n• Custom dark mode settings (must be unique, not a default preset)\n• Card colors selection\n• Optional: custom fonts\n\nYou don't need all features, but themes must include at least dark mode and card images. Check the 'User Made Themes' section for examples. Once ready, export your theme in the themes tab and email the output to support@bettercanvas.org with your theme name and preferred credit name."
         },
         {
           question: "Why wasn't my theme added to the collection?",
@@ -107,7 +107,7 @@ const FAQ = () => {
       questions: [
         {
           question: "How can I report bugs or get additional support?",
-          answer: "For bug reports, feature requests, or technical support:\n• Email: ksucpea@gmail.com\n• GitHub: Check our open-source repository for known issues\n• Include details about your browser, Canvas instance, and specific steps to reproduce any issues"
+          answer: "For bug reports, feature requests, or technical support:\n• Email: support@bettercanvas.org\n• GitHub: Check our open-source repository for known issues\n• Include details about your browser, Canvas instance, and specific steps to reproduce any issues"
         },
         {
           question: "Is BetterCanvas free to use?",
@@ -243,11 +243,11 @@ const FAQ = () => {
             }
           },
             React.createElement('a', {
-              href: 'mailto:ksucpea@gmail.com',
+              href: 'mailto:support@bettercanvas.org',
               className: 'btn btn-primary'
             }, '📧 Email Support'),
             React.createElement('a', {
-              href: 'https://github.com/ksucpea/bettercanvas',
+              href: 'https://github.com/UseBetterCanvas/bettercanvas',
               target: '_blank',
               rel: 'noopener noreferrer',
               className: 'btn btn-outline'
