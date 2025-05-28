@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
+import TermsOfService from './pages/TermsOfService.jsx'
 
 // Header Component
 const Header = () => {
@@ -34,12 +37,14 @@ const Header = () => {
           justifyContent: 'space-between'
         }
       },
-        React.createElement('div', {
+        React.createElement(Link, {
+          to: '/',
           className: 'gradient-text',
           style: {
             fontFamily: 'var(--font-serif)',
             fontSize: '1.5rem',
-            fontWeight: '500'
+            fontWeight: '500',
+            textDecoration: 'none'
           }
         }, 'Better Canvas'),
         
@@ -468,6 +473,35 @@ const Footer = () => {
               }
             }, 'Support')
           )
+        ),
+        
+        React.createElement('div', null,
+          React.createElement('h4', {
+            className: 'mb-md',
+            style: { fontFamily: 'var(--font-serif)' }
+          }, 'Legal'),
+          React.createElement('div', {
+            style: { display: 'flex', flexDirection: 'column', gap: '0.5rem' }
+          },
+            React.createElement(Link, {
+              to: '/privacy',
+              style: {
+                color: 'white',
+                opacity: 0.8,
+                textDecoration: 'none',
+                transition: 'opacity var(--transition)'
+              }
+            }, 'Privacy Policy'),
+            React.createElement(Link, {
+              to: '/terms',
+              style: {
+                color: 'white',
+                opacity: 0.8,
+                textDecoration: 'none',
+                transition: 'opacity var(--transition)'
+              }
+            }, 'Terms of Service')
+          )
         )
       ),
 
@@ -486,14 +520,25 @@ const Footer = () => {
   )
 }
 
-// Main App Component
-function App() {
+// Homepage Component (existing components combined)
+const HomePage = () => {
   return React.createElement('div', { className: 'App' },
     React.createElement(Header),
     React.createElement(Hero),
     React.createElement(Features),
     React.createElement(Installation),
     React.createElement(Footer)
+  )
+}
+
+// Main App Component with Router
+function App() {
+  return React.createElement(Router, null,
+    React.createElement(Routes, null,
+      React.createElement(Route, { path: '/', element: React.createElement(HomePage) }),
+      React.createElement(Route, { path: '/privacy', element: React.createElement(PrivacyPolicy) }),
+      React.createElement(Route, { path: '/terms', element: React.createElement(TermsOfService) })
+    )
   )
 }
 

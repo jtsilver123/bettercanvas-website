@@ -133,6 +133,10 @@ p {
   padding: var(--space-2xl) 0;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
 /* Button Components */
 .btn {
   display: inline-flex;
@@ -273,6 +277,37 @@ p {
   grid-template-columns: repeat(3, 1fr);
 }
 
+/* Legal Pages Styling */
+.legal-page ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.legal-page li {
+  margin-bottom: 0.5rem;
+}
+
+.legal-page section {
+  margin-bottom: 2rem;
+}
+
+.legal-page h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.legal-page h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.legal-page p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
 /* Utility Classes */
 .gradient-text {
   background: var(--primary-gradient);
@@ -328,6 +363,14 @@ p {
   
   h1 {
     font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .legal-page h2 {
+    font-size: 1.375rem;
+  }
+  
+  .legal-page h3 {
+    font-size: 1.125rem;
   }
 }
 
