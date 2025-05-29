@@ -129,12 +129,24 @@ p {
   padding: var(--space-3xl) 0;
 }
 
+.section-padding {
+  padding: var(--space-3xl) 0;
+}
+
 .section-sm {
   padding: var(--space-2xl) 0;
 }
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+/* Hero Grid Layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: center;
 }
 
 /* Spacing Utilities */
@@ -300,7 +312,7 @@ p {
 }
 
 .grid-responsive {
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .grid-2 {
@@ -381,12 +393,16 @@ p {
     padding: 0 var(--space-md);
   }
   
-  .section {
+  .section, .section-padding {
     padding: var(--space-2xl) 0;
   }
   
   .grid-2,
   .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-responsive {
     grid-template-columns: 1fr;
   }
   
@@ -416,6 +432,33 @@ p {
     padding: 0 1rem 1rem !important;
     font-size: 0.9rem;
   }
+
+  /* Mobile Navigation */
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .mobile-menu-btn {
+    display: block !important;
+  }
+  
+  /* Better mobile grid for features */
+  .feature-card {
+    padding: 1.5rem !important;
+  }
+  
+  /* Mobile modal improvements */
+  .mobile-nav a:hover,
+  .mobile-nav button:hover {
+    background: var(--surface) !important;
+  }
+
+  /* Hero Grid Mobile Layout */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -425,6 +468,31 @@ p {
   
   .card {
     padding: var(--space-lg);
+  }
+  
+  .section, .section-padding {
+    padding: var(--space-xl) 0;
+  }
+  
+  /* Even smaller mobile adjustments */
+  .feature-card {
+    padding: 1rem !important;
+  }
+  
+  .btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Desktop Navigation visibility */
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  .desktop-nav {
+    display: flex !important;
   }
 }
 
@@ -457,6 +525,33 @@ p {
   }
 }
 
+@keyframes swipeHint {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(calc(-50% - 20px), -50%);
+  }
+  45% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  85% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+
 /* Focus and Accessibility */
 .btn:focus,
 a:focus,
@@ -484,7 +579,7 @@ a:focus,
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 
@@ -496,4 +591,13 @@ a:focus,
 
 .university-logo:hover .logo-circle {
   transform: scale(1.1);
+}
+
+@keyframes bounceRight {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(10px);
+  }
 } 

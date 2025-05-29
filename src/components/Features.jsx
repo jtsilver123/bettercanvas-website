@@ -43,9 +43,9 @@ function Features() {
   return (
     <section id="features" className="section-padding" style={{ background: 'var(--surface)' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 8vw, 4rem)' }}>
           <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 3rem)',
+            fontSize: 'clamp(2rem, 6vw, 3rem)',
             fontWeight: '700',
             marginBottom: '1rem',
             background: 'var(--primary-gradient)',
@@ -56,10 +56,11 @@ function Features() {
             Powerful Features
           </h2>
           <p style={{
-            fontSize: '1.2rem',
+            fontSize: 'clamp(1rem, 3vw, 1.2rem)',
             color: 'var(--text-secondary)',
             maxWidth: '600px',
-            margin: '0 auto'
+            margin: '0 auto',
+            lineHeight: '1.6'
           }}>
             Transform your Canvas experience with features designed for modern students
           </p>
@@ -67,9 +68,9 @@ function Features() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-          gap: '2rem',
-          marginBottom: '4rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+          gap: 'clamp(1.5rem, 4vw, 2rem)',
+          marginBottom: 'clamp(3rem, 8vw, 4rem)'
         }}>
           {features.map((feature, index) => (
             <div
@@ -78,10 +79,12 @@ function Features() {
               style={{
                 background: 'white',
                 borderRadius: '1.5rem',
-                padding: '2.5rem',
+                padding: 'clamp(1.5rem, 5vw, 2.5rem)',
                 textAlign: 'center',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                transition: 'all 0.3s ease',
+                border: '1px solid var(--border-light)'
               }}
             >
               <div style={{
@@ -94,14 +97,14 @@ function Features() {
               }} />
               
               <div style={{
-                fontSize: '3rem',
+                fontSize: 'clamp(2.5rem, 8vw, 3rem)',
                 marginBottom: '1.5rem'
               }}>
                 {feature.icon}
               </div>
               
               <h3 style={{
-                fontSize: '1.5rem',
+                fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
                 fontWeight: '700',
                 marginBottom: '1rem',
                 color: 'var(--text-primary)'
@@ -111,7 +114,8 @@ function Features() {
               
               <p style={{
                 color: 'var(--text-secondary)',
-                lineHeight: '1.6'
+                lineHeight: '1.6',
+                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)'
               }}>
                 {feature.description}
               </p>
@@ -121,13 +125,13 @@ function Features() {
 
         <div style={{
           textAlign: 'center',
-          padding: '3rem',
+          padding: 'clamp(2rem, 6vw, 3rem)',
           background: 'white',
           borderRadius: '1.5rem',
           border: '1px solid var(--border)'
         }}>
           <h3 style={{
-            fontSize: '2rem',
+            fontSize: 'clamp(1.5rem, 5vw, 2rem)',
             fontWeight: '700',
             marginBottom: '1rem',
             background: 'var(--secondary-gradient)',
@@ -138,23 +142,30 @@ function Features() {
             So much more
           </h3>
           <p style={{
-            fontSize: '1.2rem',
+            fontSize: 'clamp(1rem, 3vw, 1.2rem)',
             color: 'var(--text-secondary)',
-            marginBottom: '2rem'
+            marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
+            lineHeight: '1.6'
           }}>
             That's not all Better Canvas has. Install it today and give all the features a try!
           </p>
           <div style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '1rem',
-            flexWrap: 'wrap'
+            gap: 'clamp(0.75rem, 3vw, 1rem)',
+            flexWrap: 'wrap',
+            alignItems: 'center'
           }}>
             <a 
               href="https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
+              style={{
+                minWidth: 'clamp(200px, 40vw, 250px)',
+                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                padding: 'clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)'
+              }}
             >
               Install for Chrome
             </a>
@@ -163,6 +174,11 @@ function Features() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline"
+              style={{
+                minWidth: 'clamp(200px, 40vw, 250px)',
+                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                padding: 'clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)'
+              }}
             >
               Install for Firefox
             </a>

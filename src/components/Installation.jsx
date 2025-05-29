@@ -4,9 +4,9 @@ function Installation() {
   return (
     <section id="installation" className="section-padding">
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 8vw, 4rem)' }}>
           <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 3rem)',
+            fontSize: 'clamp(2rem, 6vw, 3rem)',
             fontWeight: '700',
             marginBottom: '1rem',
             background: 'var(--primary-gradient)',
@@ -17,10 +17,11 @@ function Installation() {
             Get Started in Seconds
           </h2>
           <p style={{
-            fontSize: '1.2rem',
+            fontSize: 'clamp(1rem, 3vw, 1.2rem)',
             color: 'var(--text-secondary)',
             maxWidth: '600px',
-            margin: '0 auto'
+            margin: '0 auto',
+            lineHeight: '1.6'
           }}>
             Install Better Canvas on your favorite browser and start customizing immediately
           </p>
@@ -28,26 +29,37 @@ function Installation() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '2rem',
-          marginBottom: '4rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: 'clamp(1.5rem, 4vw, 2rem)',
+          marginBottom: 'clamp(3rem, 8vw, 4rem)'
         }}>
           {/* Chrome Installation */}
           <div style={{
             background: 'white',
             borderRadius: '1.5rem',
-            padding: '2.5rem',
+            padding: 'clamp(2rem, 6vw, 2.5rem)',
             border: '1px solid var(--border)',
-            textAlign: 'center'
+            textAlign: 'center',
+            transition: 'all 0.3s ease'
           }}>
             <div style={{
-              fontSize: '4rem',
-              marginBottom: '1.5rem'
+              fontSize: 'clamp(3rem, 10vw, 4rem)',
+              marginBottom: '1.5rem',
+              display: 'flex',
+              justifyContent: 'center'
             }}>
-              🌐
+              <img 
+                src="/images/chrome-logo.png" 
+                alt="Google Chrome"
+                style={{
+                  width: 'clamp(4rem, 12vw, 5rem)',
+                  height: 'clamp(4rem, 12vw, 5rem)',
+                  objectFit: 'contain'
+                }}
+              />
             </div>
             <h3 style={{
-              fontSize: '1.5rem',
+              fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
               fontWeight: '700',
               marginBottom: '1rem'
             }}>
@@ -55,7 +67,9 @@ function Installation() {
             </h3>
             <p style={{
               color: 'var(--text-secondary)',
-              marginBottom: '2rem'
+              marginBottom: '2rem',
+              fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+              lineHeight: '1.5'
             }}>
               Available on the Chrome Web Store with over 1,000,000+ users
             </p>
@@ -64,7 +78,11 @@ function Installation() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
-              style={{ width: '100%' }}
+              style={{ 
+                width: '100%',
+                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                padding: 'clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)'
+              }}
             >
               Add to Chrome
             </a>
@@ -74,18 +92,19 @@ function Installation() {
           <div style={{
             background: 'white',
             borderRadius: '1.5rem',
-            padding: '2.5rem',
+            padding: 'clamp(2rem, 6vw, 2.5rem)',
             border: '1px solid var(--border)',
-            textAlign: 'center'
+            textAlign: 'center',
+            transition: 'all 0.3s ease'
           }}>
             <div style={{
-              fontSize: '4rem',
+              fontSize: 'clamp(3rem, 10vw, 4rem)',
               marginBottom: '1.5rem'
             }}>
               🦊
             </div>
             <h3 style={{
-              fontSize: '1.5rem',
+              fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
               fontWeight: '700',
               marginBottom: '1rem'
             }}>
@@ -93,7 +112,9 @@ function Installation() {
             </h3>
             <p style={{
               color: 'var(--text-secondary)',
-              marginBottom: '2rem'
+              marginBottom: '2rem',
+              fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+              lineHeight: '1.5'
             }}>
               Available on Firefox Add-ons with the same great features
             </p>
@@ -102,7 +123,11 @@ function Installation() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
-              style={{ width: '100%' }}
+              style={{ 
+                width: '100%',
+                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                padding: 'clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)'
+              }}
             >
               Add to Firefox
             </a>
@@ -113,14 +138,14 @@ function Installation() {
         <div style={{
           background: 'var(--surface)',
           borderRadius: '1.5rem',
-          padding: '3rem',
-          marginBottom: '3rem'
+          padding: 'clamp(2rem, 6vw, 3rem)',
+          marginBottom: 'clamp(2.5rem, 6vw, 3rem)'
         }}>
           <h3 style={{
-            fontSize: '1.8rem',
+            fontSize: 'clamp(1.5rem, 5vw, 1.8rem)',
             fontWeight: '700',
             textAlign: 'center',
-            marginBottom: '2rem',
+            marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
             color: 'var(--text-primary)'
           }}>
             Installation Steps
@@ -128,133 +153,183 @@ function Installation() {
           
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+            gap: 'clamp(1.5rem, 4vw, 2rem)'
           }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{
-                width: '60px',
-                height: '60px',
+                width: 'clamp(50px, 12vw, 60px)',
+                height: 'clamp(50px, 12vw, 60px)',
                 borderRadius: '50%',
                 background: 'var(--primary-gradient)',
                 color: 'white',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.5rem',
+                fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
                 fontWeight: '700',
                 margin: '0 auto 1rem'
               }}>
                 1
               </div>
-              <h4 style={{ marginBottom: '0.5rem', fontWeight: '600' }}>
+              <h4 style={{ 
+                marginBottom: '0.5rem', 
+                fontWeight: '600',
+                fontSize: 'clamp(1rem, 3vw, 1.125rem)'
+              }}>
                 Click Install
               </h4>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+              <p style={{ 
+                color: 'var(--text-secondary)', 
+                fontSize: 'clamp(0.85rem, 2.5vw, 0.9rem)',
+                lineHeight: '1.5'
+              }}>
                 Click the extension link for your browser
               </p>
             </div>
 
             <div style={{ textAlign: 'center' }}>
               <div style={{
-                width: '60px',
-                height: '60px',
+                width: 'clamp(50px, 12vw, 60px)',
+                height: 'clamp(50px, 12vw, 60px)',
                 borderRadius: '50%',
                 background: 'var(--primary-gradient)',
                 color: 'white',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.5rem',
+                fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
                 fontWeight: '700',
                 margin: '0 auto 1rem'
               }}>
                 2
               </div>
-              <h4 style={{ marginBottom: '0.5rem', fontWeight: '600' }}>
+              <h4 style={{ 
+                marginBottom: '0.5rem', 
+                fontWeight: '600',
+                fontSize: 'clamp(1rem, 3vw, 1.125rem)'
+              }}>
                 Add to Browser
               </h4>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+              <p style={{ 
+                color: 'var(--text-secondary)', 
+                fontSize: 'clamp(0.85rem, 2.5vw, 0.9rem)',
+                lineHeight: '1.5'
+              }}>
                 Confirm the installation in your browser
               </p>
             </div>
 
             <div style={{ textAlign: 'center' }}>
               <div style={{
-                width: '60px',
-                height: '60px',
+                width: 'clamp(50px, 12vw, 60px)',
+                height: 'clamp(50px, 12vw, 60px)',
                 borderRadius: '50%',
                 background: 'var(--primary-gradient)',
                 color: 'white',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.5rem',
+                fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
                 fontWeight: '700',
                 margin: '0 auto 1rem'
               }}>
                 3
               </div>
-              <h4 style={{ marginBottom: '0.5rem', fontWeight: '600' }}>
+              <h4 style={{ 
+                marginBottom: '0.5rem', 
+                fontWeight: '600',
+                fontSize: 'clamp(1rem, 3vw, 1.125rem)'
+              }}>
                 Visit Canvas
               </h4>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                Navigate to your Canvas and enjoy!
+              <p style={{ 
+                color: 'var(--text-secondary)', 
+                fontSize: 'clamp(0.85rem, 2.5vw, 0.9rem)',
+                lineHeight: '1.5'
+              }}>
+                Open Canvas and enjoy your transformed experience
               </p>
             </div>
           </div>
         </div>
 
-        {/* Stats */}
+        {/* Statistics */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '2rem',
-          textAlign: 'center'
+          textAlign: 'center',
+          padding: 'clamp(2rem, 6vw, 3rem)',
+          background: 'white',
+          borderRadius: '1.5rem',
+          border: '1px solid var(--border)'
         }}>
-          <div>
-            <div style={{
-              fontSize: '2.5rem',
-              fontWeight: '700',
-              background: 'var(--primary-gradient)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              marginBottom: '0.5rem'
-            }}>
-              1M+
-            </div>
-            <p style={{ color: 'var(--text-secondary)' }}>Active Users</p>
-          </div>
+          <h3 style={{
+            fontSize: 'clamp(1.5rem, 5vw, 2rem)',
+            fontWeight: '700',
+            marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
+            color: 'var(--text-primary)'
+          }}>
+            Trusted by Students Worldwide
+          </h3>
           
-          <div>
-            <div style={{
-              fontSize: '2.5rem',
-              fontWeight: '700',
-              background: 'var(--secondary-gradient)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              marginBottom: '0.5rem'
-            }}>
-              5.0★
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 150px), 1fr))',
+            gap: 'clamp(2rem, 6vw, 3rem)',
+            alignItems: 'center'
+          }}>
+            <div>
+              <div style={{
+                fontSize: 'clamp(2rem, 8vw, 2.5rem)',
+                fontWeight: '700',
+                background: 'var(--primary-gradient)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                marginBottom: '0.5rem'
+              }}>
+                1M+
+              </div>
+              <p style={{ 
+                color: 'var(--text-secondary)',
+                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)'
+              }}>Active Users</p>
             </div>
-            <p style={{ color: 'var(--text-secondary)' }}>Average Rating</p>
-          </div>
-          
-          <div>
-            <div style={{
-              fontSize: '2.5rem',
-              fontWeight: '700',
-              background: 'var(--primary-gradient)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              marginBottom: '0.5rem'
-            }}>
-              7.4K
+            
+            <div>
+              <div style={{
+                fontSize: 'clamp(2rem, 8vw, 2.5rem)',
+                fontWeight: '700',
+                background: 'var(--secondary-gradient)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                marginBottom: '0.5rem'
+              }}>
+                5.0★
+              </div>
+              <p style={{ 
+                color: 'var(--text-secondary)',
+                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)'
+              }}>Average Rating</p>
             </div>
-            <p style={{ color: 'var(--text-secondary)' }}>Reviews</p>
+            
+            <div>
+              <div style={{
+                fontSize: 'clamp(2rem, 8vw, 2.5rem)',
+                fontWeight: '700',
+                background: 'var(--primary-gradient)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                marginBottom: '0.5rem'
+              }}>
+                7.4K
+              </div>
+              <p style={{ 
+                color: 'var(--text-secondary)',
+                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)'
+              }}>Reviews</p>
+            </div>
           </div>
         </div>
       </div>
