@@ -122,68 +122,6 @@ function Features() {
             </div>
           ))}
         </div>
-
-        <div style={{
-          textAlign: 'center',
-          padding: 'clamp(2rem, 6vw, 3rem)',
-          background: 'white',
-          borderRadius: '1.5rem',
-          border: '1px solid var(--border)'
-        }}>
-          <h3 style={{
-            fontSize: 'clamp(1.5rem, 5vw, 2rem)',
-            fontWeight: '700',
-            marginBottom: '1rem',
-            background: 'var(--secondary-gradient)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
-          }}>
-            So much more
-          </h3>
-          <p style={{
-            fontSize: 'clamp(1rem, 3vw, 1.2rem)',
-            color: 'var(--text-secondary)',
-            marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
-            lineHeight: '1.6'
-          }}>
-            That's not all Better Canvas has. Install it today and give all the features a try!
-          </p>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: 'clamp(0.75rem, 3vw, 1rem)',
-            flexWrap: 'wrap',
-            alignItems: 'center'
-          }}>
-            <a 
-              href="https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-              style={{
-                minWidth: 'clamp(200px, 40vw, 250px)',
-                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
-                padding: 'clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)'
-              }}
-            >
-              Install for Chrome
-            </a>
-            <a 
-              href="https://addons.mozilla.org/addon/better-canvas/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline"
-              style={{
-                minWidth: 'clamp(200px, 40vw, 250px)',
-                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
-                padding: 'clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)'
-              }}
-            >
-              Install for Firefox
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   )

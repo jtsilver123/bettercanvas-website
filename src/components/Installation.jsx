@@ -287,7 +287,7 @@ function Installation() {
                 backgroundClip: 'text',
                 marginBottom: '0.5rem'
               }}>
-                1M+
+                1.5M+
               </div>
               <p style={{ 
                 color: 'var(--text-secondary)',
