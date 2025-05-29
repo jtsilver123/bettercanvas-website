@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -224,8 +225,8 @@ function Footer() {
             marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
             flexWrap: 'wrap'
           }}>
-            <a 
-              href="/privacy"
+            <Link 
+              to="/privacy"
               style={{
                 color: 'white',
                 opacity: 0.7,
@@ -237,9 +238,9 @@ function Footer() {
               onMouseOut={(e) => e.target.style.opacity = '0.7'}
             >
               Privacy Policy
-            </a>
-            <a 
-              href="/terms"
+            </Link>
+            <Link 
+              to="/terms"
               style={{
                 color: 'white',
                 opacity: 0.7,
@@ -251,9 +252,9 @@ function Footer() {
               onMouseOut={(e) => e.target.style.opacity = '0.7'}
             >
               Terms of Service
-            </a>
-            <a 
-              href="/faq"
+            </Link>
+            <Link 
+              to="/faq"
               style={{
                 color: 'white',
                 opacity: 0.7,
@@ -265,7 +266,7 @@ function Footer() {
               onMouseOut={(e) => e.target.style.opacity = '0.7'}
             >
               FAQ
-            </a>
+            </Link>
           </div>
           
           <p style={{ 

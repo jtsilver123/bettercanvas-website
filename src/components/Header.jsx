@@ -92,6 +92,14 @@ function Header() {
           }}>
             For Schools
           </Link>
+          <Link to="/faq" style={{
+            textDecoration: 'none',
+            color: isScrolled ? 'var(--text-primary)' : 'rgba(255,255,255,0.9)',
+            fontWeight: '500',
+            transition: 'color 0.3s ease'
+          }}>
+            FAQ
+          </Link>
           <button
             onClick={handleDemoClick}
             style={{
@@ -200,6 +208,20 @@ function Header() {
               }}
             >
               For Schools
+            </Link>
+            <Link 
+              to="/faq" 
+              onClick={closeMobileMenu}
+              style={{
+                padding: '0.75rem 1.5rem',
+                textDecoration: 'none',
+                color: 'var(--text-primary)',
+                fontWeight: '500',
+                borderRadius: '0.5rem',
+                transition: 'background 0.3s ease'
+              }}
+            >
+              FAQ
             </Link>
             <button
               onClick={handleDemoClick}
