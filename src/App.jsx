@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import TermsOfService from './pages/TermsOfService.jsx'
@@ -29,8 +29,260 @@ const AnnouncementBar = () => {
   )
 }
 
-// New Hero Component
+// Before/After Slider Component
+const BeforeAfterSlider = () => {
+  const [sliderPosition, setSliderPosition] = useState(50)
+  const [isDragging, setIsDragging] = useState(false)
+  const containerRef = useRef(null)
+
+  // Canvas transformation images - replace these URLs with your actual hosted screenshots
+  const beforeImageSrc = '/images/canvas-before.jpg' // Original Canvas with red sidebar
+  const afterImageSrc = '/images/canvas-after.jpg'   // BetterCanvas with coffee theme
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true)
+    updateSliderPosition(e)
+  }
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return
+    updateSliderPosition(e)
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
+
+  const handleTouchStart = (e) => {
+    setIsDragging(true)
+    updateSliderPosition(e.touches[0])
+  }
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return
+    e.preventDefault()
+    updateSliderPosition(e.touches[0])
+  }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+  }
+
+  const updateSliderPosition = (event) => {
+    if (!containerRef.current) return
+    
+    const rect = containerRef.current.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100))
+    setSliderPosition(percentage)
+  }
+
+  useEffect(() => {
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove)
+      document.addEventListener('mouseup', handleMouseUp)
+      document.addEventListener('touchmove', handleTouchMove, { passive: false })
+      document.addEventListener('touchend', handleTouchEnd)
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseup', handleMouseUp)
+      document.removeEventListener('touchmove', handleTouchMove)
+      document.removeEventListener('touchend', handleTouchEnd)
+    }
+  }, [isDragging])
+
+  return React.createElement('div', {
+    ref: containerRef,
+    style: {
+      position: 'relative',
+      width: '100%',
+      height: '400px', // Reduced height for better fit
+      borderRadius: 'var(--radius-xl)',
+      overflow: 'hidden',
+      cursor: isDragging ? 'grabbing' : 'grab',
+      boxShadow: '0 20px 60px rgba(0,0,0,0.1)',
+      border: '1px solid rgba(255,255,255,0.2)',
+      background: '#f8f9fa' // Light background in case images don't fill completely
+    },
+    onMouseDown: handleMouseDown,
+    onTouchStart: handleTouchStart
+  },
+    // Before Image (Original Canvas)
+    React.createElement('div', {
+      style: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: `url(${beforeImageSrc})`,
+        backgroundSize: 'contain', // Changed from 'cover' to 'contain'
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }
+    }),
+    
+    // After Image (BetterCanvas) with clip path
+    React.createElement('div', {
+      style: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: `url(${afterImageSrc})`,
+        backgroundSize: 'contain', // Changed from 'cover' to 'contain'
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        clipPath: `polygon(${sliderPosition}% 0%, 100% 0%, 100% 100%, ${sliderPosition}% 100%)`
+      }
+    }),
+    
+    // Slider Handle
+    React.createElement('div', {
+      style: {
+        position: 'absolute',
+        left: `${sliderPosition}%`,
+        top: 0,
+        height: '100%',
+        width: '4px',
+        background: 'white',
+        transform: 'translateX(-50%)',
+        boxShadow: '0 0 20px rgba(0,0,0,0.3)',
+        zIndex: 2
+      }
+    }),
+    
+    // Drag Handle Circle
+    React.createElement('div', {
+      style: {
+        position: 'absolute',
+        left: `${sliderPosition}%`,
+        top: '50%',
+        width: '50px',
+        height: '50px',
+        background: 'white',
+        borderRadius: '50%',
+        transform: 'translate(-50%, -50%)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+        cursor: isDragging ? 'grabbing' : 'grab',
+        transition: isDragging ? 'none' : 'transform 0.1s ease',
+        zIndex: 3
+      }
+    },
+      React.createElement('div', {
+        style: {
+          display: 'flex',
+          alignItems: 'center',
+          gap: '2px'
+        }
+      },
+        React.createElement('div', {
+          style: {
+            width: '0',
+            height: '0',
+            borderTop: '6px solid transparent',
+            borderBottom: '6px solid transparent',
+            borderRight: '8px solid #667eea'
+          }
+        }),
+        React.createElement('div', {
+          style: {
+            width: '0',
+            height: '0',
+            borderTop: '6px solid transparent',
+            borderBottom: '6px solid transparent',
+            borderLeft: '8px solid #667eea'
+          }
+        })
+      )
+    ),
+    
+    // Labels
+    React.createElement('div', {
+      style: {
+        position: 'absolute',
+        top: '20px',
+        left: '20px',
+        background: 'rgba(0,0,0,0.8)',
+        color: 'white',
+        padding: '0.5rem 1rem',
+        borderRadius: '2rem',
+        fontSize: '0.875rem',
+        fontWeight: '600',
+        zIndex: 4
+      }
+    }, 'Before: Original Canvas'),
+    
+    React.createElement('div', {
+      style: {
+        position: 'absolute',
+        top: '20px',
+        right: '20px',
+        background: 'rgba(0,0,0,0.8)',
+        color: 'white',
+        padding: '0.5rem 1rem',
+        borderRadius: '2rem',
+        fontSize: '0.875rem',
+        fontWeight: '600',
+        zIndex: 4
+      }
+    }, 'After: BetterCanvas'),
+    
+    // Instructions
+    React.createElement('div', {
+      style: {
+        position: 'absolute',
+        bottom: '20px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        background: 'rgba(255,255,255,0.95)',
+        color: 'var(--text-primary)',
+        padding: '0.75rem 1.5rem',
+        borderRadius: '2rem',
+        fontSize: '0.875rem',
+        fontWeight: '600',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+        zIndex: 4
+      }
+    },
+      React.createElement('span', null, '👆'),
+      React.createElement('span', null, 'Drag to see the transformation')
+    )
+  )
+}
+
+// Utility function for opening popups
+const openPopup = (url, title = 'Popup', width = 800, height = 600) => {
+  const left = window.screen.width / 2 - width / 2
+  const top = window.screen.height / 2 - height / 2
+  const features = `width=${width},height=${height},left=${left},top=${top},scrollbars=yes,resizable=yes`
+  window.open(url, title, features)
+}
+
+// Updated Hero Component with Modal State
 const Hero = () => {
+  const [showDemoModal, setShowDemoModal] = useState(false)
+  const [showReviewsModal, setShowReviewsModal] = useState(false)
+
+  const handleDemoClick = (e) => {
+    e.preventDefault()
+    setShowDemoModal(true)
+  }
+
+  const handleReviewsClick = (e) => {
+    e.preventDefault()
+    setShowReviewsModal(true)
+  }
+
   return React.createElement('section', {
     style: {
       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -112,21 +364,24 @@ const Hero = () => {
               }
             }, '🌐 Add to Chrome — it\'s free'),
             
-            React.createElement('a', {
-              href: '#demo',
+            React.createElement('button', {
+              onClick: handleDemoClick,
               style: {
+                background: 'none',
+                border: 'none',
                 color: 'rgba(255,255,255,0.9)',
                 textDecoration: 'underline',
                 fontSize: '1.1rem',
                 fontWeight: '500',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.5rem'
+                gap: '0.5rem',
+                cursor: 'pointer'
               }
             }, '▶️ Watch 45-second demo')
           ),
           
-          // Trust indicators
+          // Trust indicators with reviews popup
           React.createElement('div', {
             style: {
               display: 'flex',
@@ -136,43 +391,169 @@ const Hero = () => {
               fontSize: '0.875rem'
             }
           },
-            React.createElement('div', null, '⭐ 5.0 stars'),
+            React.createElement('button', {
+              onClick: handleReviewsClick,
+              style: {
+                background: 'none',
+                border: 'none',
+                color: 'inherit',
+                textDecoration: 'none',
+                cursor: 'pointer',
+                transition: 'opacity 0.2s',
+                fontSize: 'inherit'
+              },
+              onMouseEnter: (e) => e.target.style.opacity = '1',
+              onMouseLeave: (e) => e.target.style.opacity = '0.8'
+            }, '⭐ 5.0 stars'),
             React.createElement('div', null, '🎓 1.6M+ students'),
             React.createElement('div', null, '🔒 100% secure')
           )
         ),
         
-        // Right side - Demo visual
+        // Right side - Interactive Before/After Slider
         React.createElement('div', {
           style: {
-            position: 'relative',
-            height: '500px',
-            background: 'rgba(255,255,255,0.1)',
-            borderRadius: 'var(--radius-xl)',
+            position: 'relative'
+          }
+        },
+          React.createElement(BeforeAfterSlider)
+        )
+      )
+    ),
+
+    // Demo Modal
+    showDemoModal && React.createElement('div', {
+      style: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'rgba(0,0,0,0.9)',
+        zIndex: 10000,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+        backdropFilter: 'blur(10px)'
+      },
+      onClick: () => setShowDemoModal(false)
+    },
+      React.createElement('div', {
+        style: {
+          position: 'relative',
+          maxWidth: '500px',
+          width: '100%',
+          height: '700px',
+          background: 'black',
+          borderRadius: 'var(--radius-xl)',
+          overflow: 'hidden',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
+        },
+        onClick: (e) => e.stopPropagation()
+      },
+        // Close Button
+        React.createElement('button', {
+          style: {
+            position: 'absolute',
+            top: '1rem',
+            right: '1rem',
+            zIndex: 1,
+            background: 'rgba(0,0,0,0.8)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '50%',
+            width: '44px',
+            height: '44px',
+            fontSize: '24px',
+            cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255,255,255,0.2)'
-          }
-        },
-          React.createElement('div', {
-            style: {
-              textAlign: 'center',
-              padding: '2rem'
-            }
+            transition: 'all var(--transition)'
           },
-            React.createElement('div', {
-              style: { fontSize: '4rem', marginBottom: '1rem' }
-            }, '🎬'),
-            React.createElement('h3', {
-              style: { marginBottom: '1rem' }
-            }, 'Canvas Transformation Demo'),
-            React.createElement('p', {
-              style: { opacity: 0.8 }
-            }, 'See the magic happen in real-time')
-          )
-        )
+          onClick: () => setShowDemoModal(false)
+        }, '×'),
+        
+        // TikTok Embed
+        React.createElement('iframe', {
+          src: 'https://www.tiktok.com/embed/v2/7486339714144914695',
+          style: {
+            width: '100%',
+            height: '100%',
+            border: 'none',
+            borderRadius: 'var(--radius-xl)'
+          },
+          allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
+          allowFullScreen: true
+        })
+      )
+    ),
+
+    // Reviews Modal
+    showReviewsModal && React.createElement('div', {
+      style: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'rgba(0,0,0,0.8)',
+        zIndex: 10000,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+        backdropFilter: 'blur(10px)'
+      },
+      onClick: () => setShowReviewsModal(false)
+    },
+      React.createElement('div', {
+        style: {
+          position: 'relative',
+          maxWidth: '1000px',
+          width: '100%',
+          height: '80vh',
+          background: 'white',
+          borderRadius: 'var(--radius-xl)',
+          overflow: 'hidden',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
+        },
+        onClick: (e) => e.stopPropagation()
+      },
+        // Close Button
+        React.createElement('button', {
+          style: {
+            position: 'absolute',
+            top: '1rem',
+            right: '1rem',
+            zIndex: 1,
+            background: 'rgba(0,0,0,0.8)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '50%',
+            width: '44px',
+            height: '44px',
+            fontSize: '24px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all var(--transition)'
+          },
+          onClick: () => setShowReviewsModal(false)
+        }, '×'),
+        
+        // Chrome Web Store Reviews Embed
+        React.createElement('iframe', {
+          src: 'https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh/reviews',
+          style: {
+            width: '100%',
+            height: '100%',
+            border: 'none',
+            borderRadius: 'var(--radius-xl)'
+          }
+        })
       )
     )
   )
@@ -1033,7 +1414,7 @@ const FinalCTA = () => {
     style: {
       background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)',
       color: 'white',
-      padding: '4rem 0'
+      padding: '4rem 0 0 0' // Removed bottom padding
     }
   },
     React.createElement('div', { className: 'container text-center' },
@@ -1057,9 +1438,10 @@ const FinalCTA = () => {
         className: 'btn btn-glass',
         style: {
           fontSize: '1.2rem',
-          padding: '1.25rem 2.5rem'
+          padding: '1.25rem 2.5rem',
+          marginBottom: '4rem' // Add margin bottom to maintain visual spacing
         }
-      }, '🚀 Add to Chrome — Free Forever')
+      }, 'Add to Chrome — Free Forever') // Removed rocket ship emoji
     )
   )
 }
@@ -1178,9 +1560,15 @@ const Footer = () => {
   )
 }
 
-// Updated Header with announcement bar offset
+// Updated Header with Modal State
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [showReviewsModal, setShowReviewsModal] = useState(false)
+
+  const handleReviewsClick = (e) => {
+    e.preventDefault()
+    setShowReviewsModal(true)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -1241,13 +1629,17 @@ const Header = () => {
               transition: 'color var(--transition)'
             }
           }, 'Features'),
-          React.createElement('a', {
-            href: '#reviews',
+          React.createElement('button', {
+            onClick: handleReviewsClick,
             style: {
+              background: 'none',
+              border: 'none',
               textDecoration: 'none',
               color: isScrolled ? 'var(--text-primary)' : 'rgba(255,255,255,0.9)',
               fontWeight: '500',
-              transition: 'color var(--transition)'
+              transition: 'color var(--transition)',
+              cursor: 'pointer',
+              fontSize: 'inherit'
             }
           }, 'Reviews'),
           React.createElement(Link, {
@@ -1267,11 +1659,78 @@ const Header = () => {
           }, 'Get Extension')
         )
       )
+    ),
+
+    // Reviews Modal for Header
+    showReviewsModal && React.createElement('div', {
+      style: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'rgba(0,0,0,0.8)',
+        zIndex: 10001,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+        backdropFilter: 'blur(10px)'
+      },
+      onClick: () => setShowReviewsModal(false)
+    },
+      React.createElement('div', {
+        style: {
+          position: 'relative',
+          maxWidth: '1000px',
+          width: '100%',
+          height: '80vh',
+          background: 'white',
+          borderRadius: 'var(--radius-xl)',
+          overflow: 'hidden',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
+        },
+        onClick: (e) => e.stopPropagation()
+      },
+        // Close Button
+        React.createElement('button', {
+          style: {
+            position: 'absolute',
+            top: '1rem',
+            right: '1rem',
+            zIndex: 1,
+            background: 'rgba(0,0,0,0.8)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '50%',
+            width: '44px',
+            height: '44px',
+            fontSize: '24px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all var(--transition)'
+          },
+          onClick: () => setShowReviewsModal(false)
+        }, '×'),
+        
+        // Chrome Web Store Reviews Embed
+        React.createElement('iframe', {
+          src: 'https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh/reviews',
+          style: {
+            width: '100%',
+            height: '100%',
+            border: 'none',
+            borderRadius: 'var(--radius-xl)'
+          }
+        })
+      )
     )
   )
 }
 
-// Updated Homepage Component
+// Updated HomePage Component
 const HomePage = () => {
   return React.createElement('div', { className: 'App' },
     React.createElement(Hero),
