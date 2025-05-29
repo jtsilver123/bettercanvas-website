@@ -26,9 +26,6 @@ Best regards,`)
   }
 
   return React.createElement('div', { className: 'min-h-screen' },
-    // Header spacer for fixed header
-    React.createElement('div', { style: { height: '80px' } }),
-    
     // Hero Section
     React.createElement('section', {
       style: {
@@ -40,7 +37,7 @@ Best regards,`)
         position: 'relative',
         overflow: 'hidden',
         padding: 'clamp(2rem, 6vw, 4rem) 0',
-        paddingTop: 'calc(48px + clamp(2rem, 6vw, 4rem))'
+        paddingTop: 'calc(120px + clamp(2rem, 6vw, 4rem))'
       }
     },
       // Background decoration
