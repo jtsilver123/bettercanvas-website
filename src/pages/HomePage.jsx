@@ -2,7 +2,6 @@ import React from 'react'
 import Hero from '../components/Hero.jsx'
 import Features from '../components/Features.jsx'
 import Installation from '../components/Installation.jsx'
-import Footer from '../components/Footer.jsx'
 
 // School Logos Marquee Component
 const SchoolLogos = () => {
@@ -186,8 +185,7 @@ const HomePage = () => {
     React.createElement(SchoolLogos),
     React.createElement(TikTokGrid),
     React.createElement(Features),
-    React.createElement(Installation),
-    React.createElement(Footer)
+    React.createElement(Installation)
   )
 }
 

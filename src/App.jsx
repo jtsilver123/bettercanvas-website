@@ -6,6 +6,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import TermsOfService from './pages/TermsOfService.jsx'
 import FAQ from './pages/FAQ.jsx'
 import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
 
 // Announcement Bar Component
 const AnnouncementBar = () => {
@@ -44,7 +45,8 @@ function App() {
         React.createElement(Route, { path: '/faq', element: React.createElement(FAQ) }),
         React.createElement(Route, { path: '/privacy', element: React.createElement(PrivacyPolicy) }),
         React.createElement(Route, { path: '/terms', element: React.createElement(TermsOfService) })
-      )
+      ),
+      React.createElement(Footer)
     )
   )
 }
