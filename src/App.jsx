@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import HomePage from './pages/HomePage.jsx'
-import ForSchools from './pages/ForSchools.jsx'
+import ForPartners from './pages/ForPartners'
+import ForInstitutions from './pages/ForInstitutions.jsx'
+import AboutUs from './pages/AboutUs.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import TermsOfService from './pages/TermsOfService.jsx'
 import FAQ from './pages/FAQ.jsx'
@@ -19,17 +21,18 @@ const AnnouncementBar = () => {
       zIndex: 1001,
       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       color: 'white',
-      padding: '0.75rem 0',
       textAlign: 'center',
-      fontSize: '0.875rem',
+      fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
       fontWeight: '600',
       boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-      margin: 0
+      height: '3rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '0 1rem'
     }
   },
-    React.createElement('div', { className: 'container' },
-      '🚀 Built by students, free for everyone — Premium coming soon!'
-    )
+      '🚀 Premium features coming soon — Join 1.5M+ students using BetterCanvas!'
   )
 }
 
@@ -41,7 +44,9 @@ function App() {
       React.createElement(Header),
       React.createElement(Routes, null,
         React.createElement(Route, { path: '/', element: React.createElement(HomePage) }),
-        React.createElement(Route, { path: '/for-schools', element: React.createElement(ForSchools) }),
+        React.createElement(Route, { path: '/for-partners', element: React.createElement(ForPartners) }),
+        React.createElement(Route, { path: '/for-institutions', element: React.createElement(ForInstitutions) }),
+        React.createElement(Route, { path: '/about', element: React.createElement(AboutUs, { title: 'Our Story' }) }),
         React.createElement(Route, { path: '/faq', element: React.createElement(FAQ) }),
         React.createElement(Route, { path: '/privacy', element: React.createElement(PrivacyPolicy) }),
         React.createElement(Route, { path: '/terms', element: React.createElement(TermsOfService) })

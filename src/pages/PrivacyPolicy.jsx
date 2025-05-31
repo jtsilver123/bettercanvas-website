@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/SharedPages.css'
 
 const PrivacyPolicy = () => {
   React.useEffect(() => {
@@ -6,23 +7,17 @@ const PrivacyPolicy = () => {
   }, [])
 
   return React.createElement('div', { className: 'min-h-screen' },
-    // Header spacer
-    React.createElement('div', { style: { height: '80px' } }),
+    React.createElement('div', { className: 'page-wrapper' },
+      React.createElement('div', { className: 'page-header' },
+        React.createElement('h1', null, 'Privacy Policy'),
+        React.createElement('p', null, 'Last updated: 27 May 2025')
+      )
+    ),
     
     React.createElement('div', { className: 'container section' },
       React.createElement('div', { 
         style: { maxWidth: '800px', margin: '0 auto' }
       },
-        React.createElement('h1', { 
-          className: 'text-center mb-lg',
-          style: { fontFamily: 'var(--font-serif)' }
-        }, 'BetterCanvas — Privacy Policy'),
-        
-        React.createElement('p', { 
-          className: 'text-center text-small mb-2xl',
-          style: { color: 'var(--text-secondary)' }
-        }, 'Last updated: 27 May 2025'),
-        
         React.createElement('div', { className: 'card' },
           React.createElement('div', { style: { lineHeight: '1.7' } },
             

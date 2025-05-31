@@ -6,7 +6,7 @@ function Footer() {
     <footer style={{
       background: 'var(--dark-gradient)',
       color: 'white',
-      padding: 'clamp(2rem, 6vw, 3rem) 0 clamp(1.5rem, 4vw, 2rem)'
+      padding: 'clamp(3rem, 6vw, 4rem) 0'
     }}>
       <div className="container">
         <div style={{
@@ -25,7 +25,7 @@ function Footer() {
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text'
             }}>
-              Better Canvas
+              BetterCanvas
             </div>
             <p style={{
               opacity: 0.8,
@@ -215,7 +215,8 @@ function Footer() {
 
         <div style={{
           borderTop: '1px solid rgba(255, 255, 255, 0.2)',
-          paddingTop: 'clamp(1.5rem, 4vw, 2rem)',
+          paddingTop: 'clamp(2rem, 4vw, 2.5rem)',
+          marginTop: 'clamp(2rem, 4vw, 2.5rem)',
           textAlign: 'center'
         }}>
           <div style={{
@@ -272,10 +273,10 @@ function Footer() {
           <p style={{ 
             opacity: 0.5,
             fontSize: 'clamp(0.75rem, 2vw, 0.85rem)',
-            marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
             maxWidth: '800px',
             margin: '0 auto',
-            lineHeight: '1.4'
+            marginBottom: 'clamp(1.5rem, 3vw, 2rem)',
+            lineHeight: '1.6'
           }}>
             <strong>Disclaimer:</strong> BetterCanvas is an independent browser extension created by students to enhance the Canvas learning experience. 
             We are not affiliated with, endorsed by, or connected to Instructure Inc. or Canvas LMS. 
@@ -284,9 +285,10 @@ function Footer() {
           
           <p style={{ 
             opacity: 0.6,
-            fontSize: 'clamp(0.8rem, 2.5vw, 0.9rem)'
+            fontSize: 'clamp(0.8rem, 2.5vw, 0.9rem)',
+            marginBottom: 0
           }}>
-            © 2025 Better Canvas. Made with ❤️ for students everywhere.
+            © 2025 BetterCanvas. Made with ❤️ for students everywhere.
           </p>
         </div>
       </div>

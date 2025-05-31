@@ -4,136 +4,6 @@ function Installation() {
   return (
     <section id="installation" className="section-padding">
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 8vw, 4rem)' }}>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 6vw, 3rem)',
-            fontWeight: '700',
-            marginBottom: '1rem',
-            background: 'var(--primary-gradient)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
-          }}>
-            Get Started in Seconds
-          </h2>
-          <p style={{
-            fontSize: 'clamp(1rem, 3vw, 1.2rem)',
-            color: 'var(--text-secondary)',
-            maxWidth: '600px',
-            margin: '0 auto',
-            lineHeight: '1.6'
-          }}>
-            Install Better Canvas on your favorite browser and start customizing immediately
-          </p>
-        </div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-          gap: 'clamp(1.5rem, 4vw, 2rem)',
-          marginBottom: 'clamp(3rem, 8vw, 4rem)'
-        }}>
-          {/* Chrome Installation */}
-          <div style={{
-            background: 'white',
-            borderRadius: '1.5rem',
-            padding: 'clamp(2rem, 6vw, 2.5rem)',
-            border: '1px solid var(--border)',
-            textAlign: 'center',
-            transition: 'all 0.3s ease'
-          }}>
-            <div style={{
-              fontSize: 'clamp(3rem, 10vw, 4rem)',
-              marginBottom: '1.5rem',
-              display: 'flex',
-              justifyContent: 'center'
-            }}>
-              <img 
-                src="/images/chrome-logo.png" 
-                alt="Google Chrome"
-                style={{
-                  width: 'clamp(4rem, 12vw, 5rem)',
-                  height: 'clamp(4rem, 12vw, 5rem)',
-                  objectFit: 'contain'
-                }}
-              />
-            </div>
-            <h3 style={{
-              fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
-              fontWeight: '700',
-              marginBottom: '1rem'
-            }}>
-              Google Chrome
-            </h3>
-            <p style={{
-              color: 'var(--text-secondary)',
-              marginBottom: '2rem',
-              fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
-              lineHeight: '1.5'
-            }}>
-              Available on the Chrome Web Store with over 1,000,000+ users
-            </p>
-            <a 
-              href="https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-              style={{ 
-                width: '100%',
-                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
-                padding: 'clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)'
-              }}
-            >
-              Add to Chrome
-            </a>
-          </div>
-
-          {/* Firefox Installation */}
-          <div style={{
-            background: 'white',
-            borderRadius: '1.5rem',
-            padding: 'clamp(2rem, 6vw, 2.5rem)',
-            border: '1px solid var(--border)',
-            textAlign: 'center',
-            transition: 'all 0.3s ease'
-          }}>
-            <div style={{
-              fontSize: 'clamp(3rem, 10vw, 4rem)',
-              marginBottom: '1.5rem'
-            }}>
-              🦊
-            </div>
-            <h3 style={{
-              fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
-              fontWeight: '700',
-              marginBottom: '1rem'
-            }}>
-              Mozilla Firefox
-            </h3>
-            <p style={{
-              color: 'var(--text-secondary)',
-              marginBottom: '2rem',
-              fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
-              lineHeight: '1.5'
-            }}>
-              Available on Firefox Add-ons with the same great features
-            </p>
-            <a 
-              href="https://addons.mozilla.org/addon/better-canvas/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-              style={{ 
-                width: '100%',
-                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
-                padding: 'clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)'
-              }}
-            >
-              Add to Firefox
-            </a>
-          </div>
-        </div>
-
         {/* Installation Steps */}
         <div style={{
           background: 'var(--surface)',
@@ -260,7 +130,8 @@ function Installation() {
           padding: 'clamp(2rem, 6vw, 3rem)',
           background: 'white',
           borderRadius: '1.5rem',
-          border: '1px solid var(--border)'
+          border: '1px solid var(--border)',
+          marginBottom: 'clamp(2.5rem, 6vw, 3rem)'
         }}>
           <h3 style={{
             fontSize: 'clamp(1.5rem, 5vw, 2rem)',
@@ -330,6 +201,158 @@ function Installation() {
                 fontSize: 'clamp(0.9rem, 2.5vw, 1rem)'
               }}>Reviews</p>
             </div>
+          </div>
+        </div>
+
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 8vw, 4rem)' }}>
+          <h2 style={{
+            fontSize: 'clamp(2rem, 6vw, 3rem)',
+            fontWeight: '700',
+            marginBottom: '1rem',
+            background: 'var(--primary-gradient)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            Get Started in Seconds
+          </h2>
+          <p style={{
+            fontSize: 'clamp(1rem, 3vw, 1.2rem)',
+            color: 'var(--text-secondary)',
+            maxWidth: '600px',
+            margin: '0 auto',
+            lineHeight: '1.6'
+          }}>
+            Install Better Canvas on your favorite browser and start customizing immediately
+          </p>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: 'clamp(1.5rem, 4vw, 2rem)',
+          marginBottom: 'clamp(3rem, 8vw, 4rem)'
+        }}>
+          {/* Chrome Installation */}
+          <div style={{
+            background: 'white',
+            borderRadius: '1.5rem',
+            padding: 'clamp(2rem, 6vw, 2.5rem)',
+            border: '1px solid var(--border)',
+            textAlign: 'center',
+            transition: 'all 0.3s ease',
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%' // Ensure equal height
+          }}>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: 'clamp(5rem, 15vw, 6rem)', // Fixed height for icon area
+              marginBottom: '1.5rem'
+            }}>
+              <img 
+                src="/images/chrome-logo.png" 
+                alt="Google Chrome"
+                style={{
+                  width: 'clamp(4rem, 12vw, 5rem)',
+                  height: 'clamp(4rem, 12vw, 5rem)',
+                  objectFit: 'contain'
+                }}
+              />
+            </div>
+            <h3 style={{
+              fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
+              fontWeight: '700',
+              marginBottom: '1rem'
+            }}>
+              Google Chrome
+            </h3>
+            <p style={{
+              color: 'var(--text-secondary)',
+              marginBottom: '2rem',
+              fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+              lineHeight: '1.5',
+              flex: 1 // Take up available space
+            }}>
+              Available on the Chrome Web Store with over 1,000,000+ users
+            </p>
+            <a 
+              href="https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+              style={{ 
+                width: '100%',
+                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                padding: 'clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)',
+                marginTop: 'auto' // Push to bottom
+              }}
+            >
+              Add to Chrome
+            </a>
+          </div>
+
+          {/* Firefox Installation */}
+          <div style={{
+            background: 'white',
+            borderRadius: '1.5rem',
+            padding: 'clamp(2rem, 6vw, 2.5rem)',
+            border: '1px solid var(--border)',
+            textAlign: 'center',
+            transition: 'all 0.3s ease',
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%' // Ensure equal height
+          }}>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: 'clamp(5rem, 15vw, 6rem)', // Fixed height for icon area to match Chrome
+              marginBottom: '1.5rem'
+            }}>
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" 
+                alt="Mozilla Firefox"
+                style={{
+                  width: 'clamp(4rem, 12vw, 5rem)',
+                  height: 'clamp(4rem, 12vw, 5rem)',
+                  objectFit: 'contain'
+                }}
+              />
+            </div>
+            <h3 style={{
+              fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
+              fontWeight: '700',
+              marginBottom: '1rem'
+            }}>
+              Mozilla Firefox
+            </h3>
+            <p style={{
+              color: 'var(--text-secondary)',
+              marginBottom: '2rem',
+              fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+              lineHeight: '1.5',
+              flex: 1 // Take up available space
+            }}>
+              Available on Firefox Add-ons with the same great features
+            </p>
+            <a 
+              href="https://addons.mozilla.org/addon/better-canvas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+              style={{ 
+                width: '100%',
+                fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                padding: 'clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)',
+                marginTop: 'auto' // Push to bottom
+              }}
+            >
+              Add to Firefox
+            </a>
           </div>
         </div>
       </div>

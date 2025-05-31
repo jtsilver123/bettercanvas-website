@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import '../styles/LegalPages.css'
+import '../styles/FAQ.css'
+import '../styles/SharedPages.css'
 
 const FAQ = () => {
   const [openSection, setOpenSection] = useState(null)
@@ -118,27 +121,19 @@ const FAQ = () => {
   ]
 
   return React.createElement('div', { className: 'min-h-screen' },
-    // Header spacer
-    React.createElement('div', { style: { height: '80px' } }),
+    React.createElement('div', { className: 'page-wrapper' },
+      React.createElement('div', { className: 'page-header' },
+        React.createElement('h1', null, 'Frequently Asked Questions'),
+        React.createElement('p', null, 
+          'Find answers to common questions about BetterCanvas. If you can\'t find what you\'re looking for, feel free to contact our support team.'
+        )
+      )
+    ),
     
     React.createElement('div', { className: 'container section' },
       React.createElement('div', { 
         style: { maxWidth: '900px', margin: '0 auto' }
       },
-        React.createElement('h1', { 
-          className: 'text-center mb-lg',
-          style: { fontFamily: 'var(--font-serif)' }
-        }, 'Frequently Asked Questions'),
-        
-        React.createElement('p', {
-          className: 'text-large text-center mb-2xl',
-          style: { 
-            color: 'var(--text-secondary)',
-            maxWidth: '600px',
-            margin: '0 auto 3rem'
-          }
-        }, 'Find answers to common questions about BetterCanvas. If you can\'t find what you\'re looking for, feel free to contact our support team.'),
-
         // FAQ Sections
         React.createElement('div', { className: 'space-y-6' },
           ...faqSections.map((section, sectionIndex) =>
@@ -243,7 +238,7 @@ const FAQ = () => {
             }
           },
             React.createElement('a', {
-              href: 'mailto:support@bettercanvas.org',
+              href: 'mailto:support@bettercanvas.org?subject=Student Support Request&body=Hi BetterCanvas Support Team,%0D%0A%0D%0A--Student Information--%0D%0AName:%0D%0ASchool/Institution:%0D%0ABrowser & Version:%0D%0ABetterCanvas Version:%0D%0A%0D%0A--Issue Details--%0D%0AType (Bug/Feature Request/Question):%0D%0ADescription:%0D%0ASteps to Reproduce (if bug):%0D%0A%0D%0A--Additional Information--%0D%0AScreenshots (if applicable):%0D%0APreferred Contact Method:%0D%0A%0D%0AThank you for using BetterCanvas!',
               className: 'btn btn-primary'
             }, '📧 Email Support'),
             React.createElement('a', {

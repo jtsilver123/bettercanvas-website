@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [showDemoModal, setShowDemoModal] = useState(false)
   const [showReviewsModal, setShowReviewsModal] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
+  
+  // Check if we're on the homepage
+  const isHomePage = location.pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +19,19 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Header should have background if:
+  // 1. We're scrolled down, OR
+  // 2. We're not on the homepage, OR
+  // 3. Always show blue background to avoid white gap with banner
+  const shouldShowBackground = true // Always show background
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   const handleDemoClick = (e) => {
     e.preventDefault()
     setShowDemoModal(true)
@@ -23,8 +40,17 @@ function Header() {
 
   const handleReviewsClick = (e) => {
     e.preventDefault()
-    setShowReviewsModal(true)
-    setIsMobileMenuOpen(false) // Close mobile menu
+    if (!isHomePage) {
+      // If not on homepage, navigate to home first
+      window.location.href = '/#testimonials'
+    } else {
+      // If already on homepage, just scroll
+      const testimonialsSection = document.getElementById('testimonials')
+      if (testimonialsSection) {
+        testimonialsSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+    closeMobileMenu()
   }
 
   const toggleMobileMenu = () => {
@@ -35,33 +61,91 @@ function Header() {
     setIsMobileMenuOpen(false)
   }
 
+  // Add click outside handler
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('.mobile-nav') && !event.target.closest('.mobile-menu-btn')) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isMobileMenuOpen])
+
+  const handleNavClick = () => {
+    scrollToTop()
+    closeMobileMenu()
+  }
+
+  const handleFeatureClick = (e) => {
+    e.preventDefault()
+    if (!isHomePage) {
+      // If not on homepage, navigate to home first
+      window.location.href = '/#features'
+    } else {
+      // If already on homepage, just scroll
+      const featuresSection = document.getElementById('features')
+      if (featuresSection) {
+        featuresSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+    closeMobileMenu()
+  }
+
   return (
     <header style={{
       position: 'fixed',
-      top: 48, // Account for announcement bar
-      left: 0,
-      right: 0,
+      top: '3rem',
+      left: 'clamp(2rem, 8vw, 6rem)',
+      right: 'clamp(2rem, 8vw, 6rem)',
       zIndex: 1000,
-      background: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-      backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-      borderBottom: isScrolled ? '1px solid var(--border)' : 'none',
-      transition: 'all 0.3s ease'
+      background: 'rgba(255, 255, 255, 0.95)',
+      backdropFilter: 'blur(20px)',
+      border: '1px solid rgba(0, 0, 0, 0.1)',
+      borderRadius: 'clamp(1.5rem, 4vw, 2.5rem)',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+      '@media (max-width: 768px)': {
+        top: '3rem',
+        left: 0,
+        right: 0,
+        height: '48px',
+        borderRadius: 0,
+        border: 'none',
+        borderTop: 'none',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+        background: 'white',
+        boxShadow: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        margin: 0
+      }
     }}>
-      <div className="container" style={{
+      <div style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '1rem 1.5rem'
+        height: '100%',
+        padding: 'clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1rem)',
+        '@media (max-width: 768px)': {
+          padding: '0 1.25rem',
+          maxWidth: '100%',
+          width: '100%'
+        }
       }}>
         <Link 
           to="/"
-          onClick={closeMobileMenu}
+          onClick={handleNavClick}
           style={{
-            fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
+            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
             fontWeight: '700',
-            color: isScrolled ? '#667eea' : 'white',
+            color: '#667eea',
             textDecoration: 'none',
-            transition: 'all 0.3s ease'
+            transition: 'all 0.3s ease',
+            '@media (max-width: 768px)': {
+              fontSize: '1.2rem'
+            }
           }}
         >
           BetterCanvas
@@ -71,79 +155,125 @@ function Header() {
         <nav style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '2rem',
+          justifyContent: 'space-between',
+          flex: 1,
+          maxWidth: 'clamp(450px, 55vw, 600px)',
+          margin: '0 clamp(1rem, 3vw, 2rem)',
           '@media (max-width: 768px)': {
             display: 'none'
           }
         }} className="desktop-nav">
-          <a href="#features" style={{
+          <Link to="/" onClick={handleNavClick} style={{
             textDecoration: 'none',
-            color: isScrolled ? 'var(--text-primary)' : 'rgba(255,255,255,0.9)',
-            fontWeight: '500',
-            transition: 'color 0.3s ease'
+            color: location.pathname === '/' ? '#667eea' : 'var(--text-primary)',
+            fontWeight: location.pathname === '/' ? '600' : '500',
+            fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)',
+            transition: 'all 0.3s ease',
+            padding: '0.5rem 0.75rem',
+            borderRadius: '0.5rem',
+            ':hover': {
+              color: '#667eea',
+              background: 'rgba(102, 126, 234, 0.1)'
+            }
           }}>
-            Features
-          </a>
-          <Link to="/for-schools" style={{
-            textDecoration: 'none',
-            color: isScrolled ? 'var(--text-primary)' : 'rgba(255,255,255,0.9)',
-            fontWeight: '500',
-            transition: 'color 0.3s ease'
-          }}>
-            For Schools
+            For Students
           </Link>
-          <Link to="/faq" style={{
+          <Link to="/for-institutions" onClick={handleNavClick} style={{
             textDecoration: 'none',
-            color: isScrolled ? 'var(--text-primary)' : 'rgba(255,255,255,0.9)',
-            fontWeight: '500',
-            transition: 'color 0.3s ease'
+            color: location.pathname === '/for-institutions' ? '#667eea' : 'var(--text-primary)',
+            fontWeight: location.pathname === '/for-institutions' ? '600' : '500',
+            fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)',
+            transition: 'all 0.3s ease',
+            padding: '0.5rem 0.75rem',
+            borderRadius: '0.5rem',
+            ':hover': {
+              color: '#667eea',
+              background: 'rgba(102, 126, 234, 0.1)'
+            }
+          }}>
+            For Institutions
+          </Link>
+          <Link to="/for-partners" onClick={handleNavClick} style={{
+            textDecoration: 'none',
+            color: location.pathname === '/for-partners' ? '#667eea' : 'var(--text-primary)',
+            fontWeight: location.pathname === '/for-partners' ? '600' : '500',
+              fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)',
+            transition: 'all 0.3s ease',
+            padding: '0.5rem 0.75rem',
+            borderRadius: '0.5rem',
+            ':hover': {
+              color: '#667eea',
+              background: 'rgba(102, 126, 234, 0.1)'
+            }
+          }}>
+            For Partners
+          </Link>
+          <Link to="/faq" onClick={handleNavClick} style={{
+            textDecoration: 'none',
+            color: location.pathname === '/faq' ? '#667eea' : 'var(--text-primary)',
+            fontWeight: location.pathname === '/faq' ? '600' : '500',
+            fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)',
+            transition: 'all 0.3s ease',
+            padding: '0.5rem 0.75rem',
+            borderRadius: '0.5rem',
+            ':hover': {
+              color: '#667eea',
+              background: 'rgba(102, 126, 234, 0.1)'
+            }
           }}>
             FAQ
           </Link>
-          <button
-            onClick={handleDemoClick}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: isScrolled ? 'var(--text-primary)' : 'rgba(255,255,255,0.9)',
-              fontWeight: '500',
-              transition: 'color 0.3s ease',
-              cursor: 'pointer',
-              textDecoration: 'underline',
-              fontSize: '1rem'
-            }}
-          >
-            Demo
-          </button>
-          <button
-            onClick={handleReviewsClick}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: isScrolled ? 'var(--text-primary)' : 'rgba(255,255,255,0.9)',
-              fontWeight: '500',
-              transition: 'color 0.3s ease',
-              cursor: 'pointer',
-              textDecoration: 'underline',
-              fontSize: '1rem'
-            }}
-          >
-            Reviews
-          </button>
-          <a 
-            href="https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-            style={{ 
-              marginLeft: '1rem',
-              fontSize: '0.9rem',
-              padding: '0.75rem 1.5rem'
-            }}
-          >
-            Get Extension
-          </a>
+          <Link to="/about" onClick={handleNavClick} style={{
+            textDecoration: 'none',
+            color: location.pathname === '/about' ? '#667eea' : 'var(--text-primary)',
+            fontWeight: location.pathname === '/about' ? '600' : '500',
+            fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)',
+            transition: 'all 0.3s ease',
+            padding: '0.5rem 0.75rem',
+            borderRadius: '0.5rem',
+            ':hover': {
+              color: '#667eea',
+              background: 'rgba(102, 126, 234, 0.1)'
+            }
+          }}>
+            Our Story
+          </Link>
         </nav>
+
+        {/* More compact CTA button */}
+        <a 
+          href="https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="desktop-nav"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.375rem',
+            padding: 'clamp(0.4rem, 1.2vw, 0.6rem) clamp(0.8rem, 2vw, 1rem)', // More compact padding
+            fontSize: 'clamp(0.75rem, 1.8vw, 0.85rem)', // Smaller font
+            fontWeight: '600',
+            background: 'var(--primary-gradient)', // Always use gradient background
+            color: 'white', // Always use white text
+            borderRadius: 'clamp(1rem, 2.5vw, 1.5rem)', // Smaller pill shape
+            textDecoration: 'none',
+            transition: 'all 0.3s ease',
+            border: 'none',
+            cursor: 'pointer',
+            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.08)', // Smaller shadow
+            flexShrink: 0
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = 'translateY(-1px)'
+            e.target.style.boxShadow = '0 3px 10px rgba(0, 0, 0, 0.12)'
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = 'translateY(0)'
+            e.target.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.08)'
+          }}
+        >
+          Get Extension
+        </a>
 
         {/* Mobile Hamburger Button */}
         <button
@@ -151,12 +281,20 @@ function Header() {
           className="mobile-menu-btn"
           style={{
             display: 'none',
-            background: 'none',
+            '@media (max-width: 768px)': {
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '2.25rem',
+              width: '44px',
+              height: '44px',
+              padding: 0,
+              color: '#1a202c',
+              background: 'transparent',
             border: 'none',
             cursor: 'pointer',
-            padding: '0.5rem',
-            color: isScrolled ? 'var(--text-primary)' : 'white',
-            fontSize: '1.5rem'
+              marginRight: '-0.5rem'
+            }
           }}
         >
           {isMobileMenuOpen ? '✕' : '☰'}
@@ -165,113 +303,159 @@ function Header() {
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
+        <>
+          <div 
+            onClick={closeMobileMenu}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'rgba(0, 0, 0, 0.3)',
+              zIndex: 998
+            }}
+          />
         <div className="mobile-nav" style={{
-          position: 'absolute',
-          top: '100%',
+            position: 'fixed',
+            top: 'calc(3rem + 57px)',
           left: 0,
           right: 0,
-          background: 'rgba(255, 255, 255, 0.98)',
-          backdropFilter: 'blur(10px)',
-          borderBottom: '1px solid var(--border)',
-          padding: '1rem 0',
-          boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
+            background: 'white',
+            padding: '0.5rem 0',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+            zIndex: 999,
+            maxHeight: 'calc(100vh - 3rem - 57px)',
+            overflowY: 'auto'
         }}>
-          <div className="container" style={{
+          <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem'
+            gap: 'clamp(0.25rem, 1.5vw, 0.5rem)', // Smaller gaps
+            padding: '0 clamp(0.75rem, 2.5vw, 1rem)'
           }}>
-            <a 
-              href="#features" 
-              onClick={closeMobileMenu}
+              <Link 
+                to="/" 
+                onClick={handleNavClick}
+                style={{
+                  padding: 'clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 2.5vw, 1rem)',
+                  textDecoration: 'none',
+                  color: location.pathname === '/' ? '#667eea' : 'var(--text-primary)',
+                  fontWeight: location.pathname === '/' ? '600' : '500',
+                  borderRadius: 'clamp(0.375rem, 1vw, 0.5rem)',
+                  transition: 'all 0.3s ease',
+                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                  ':hover': {
+                    background: 'rgba(102, 126, 234, 0.1)',
+                    color: '#667eea'
+                  }
+                }}
+              >
+                For Students
+              </Link>
+              <Link 
+                to="/for-institutions" 
+                onClick={handleNavClick}
               style={{
-                padding: '0.75rem 1.5rem',
+                padding: 'clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 2.5vw, 1rem)',
                 textDecoration: 'none',
-                color: 'var(--text-primary)',
-                fontWeight: '500',
-                borderRadius: '0.5rem',
-                transition: 'background 0.3s ease'
+                  color: location.pathname === '/for-institutions' ? '#667eea' : 'var(--text-primary)',
+                  fontWeight: location.pathname === '/for-institutions' ? '600' : '500',
+                borderRadius: 'clamp(0.375rem, 1vw, 0.5rem)',
+                  transition: 'all 0.3s ease',
+                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                  ':hover': {
+                    background: 'rgba(102, 126, 234, 0.1)',
+                    color: '#667eea'
+                  }
               }}
             >
-              Features
-            </a>
-            <Link 
-              to="/for-schools" 
-              onClick={closeMobileMenu}
+                For Institutions
+              </Link>
+              <Link 
+                to="/for-partners" 
+                onClick={handleNavClick}
               style={{
-                padding: '0.75rem 1.5rem',
-                textDecoration: 'none',
-                color: 'var(--text-primary)',
-                fontWeight: '500',
-                borderRadius: '0.5rem',
-                transition: 'background 0.3s ease'
+                padding: 'clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 2.5vw, 1rem)',
+                  textDecoration: 'none',
+                  color: location.pathname === '/for-partners' ? '#667eea' : 'var(--text-primary)',
+                  fontWeight: location.pathname === '/for-partners' ? '600' : '500',
+                borderRadius: 'clamp(0.375rem, 1vw, 0.5rem)',
+                  transition: 'all 0.3s ease',
+                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                  ':hover': {
+                    background: 'rgba(102, 126, 234, 0.1)',
+                    color: '#667eea'
+                  }
               }}
             >
-              For Schools
-            </Link>
+                For Partners
+              </Link>
             <Link 
               to="/faq" 
-              onClick={closeMobileMenu}
+              onClick={handleNavClick}
               style={{
-                padding: '0.75rem 1.5rem',
+                padding: 'clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 2.5vw, 1rem)',
                 textDecoration: 'none',
-                color: 'var(--text-primary)',
-                fontWeight: '500',
-                borderRadius: '0.5rem',
-                transition: 'background 0.3s ease'
+                  color: location.pathname === '/faq' ? '#667eea' : 'var(--text-primary)',
+                  fontWeight: location.pathname === '/faq' ? '600' : '500',
+                borderRadius: 'clamp(0.375rem, 1vw, 0.5rem)',
+                  transition: 'all 0.3s ease',
+                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                  ':hover': {
+                    background: 'rgba(102, 126, 234, 0.1)',
+                    color: '#667eea'
+                  }
               }}
             >
               FAQ
             </Link>
-            <button
-              onClick={handleDemoClick}
+            <Link 
+                to="/about" 
+              onClick={handleNavClick}
               style={{
-                padding: '0.75rem 1.5rem',
-                background: 'none',
-                border: 'none',
-                color: 'var(--text-primary)',
-                fontWeight: '500',
-                cursor: 'pointer',
-                textAlign: 'left',
-                borderRadius: '0.5rem',
-                fontSize: '1rem'
+                padding: 'clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 2.5vw, 1rem)',
+                textDecoration: 'none',
+                  color: location.pathname === '/about' ? '#667eea' : 'var(--text-primary)',
+                  fontWeight: location.pathname === '/about' ? '600' : '500',
+                borderRadius: 'clamp(0.375rem, 1vw, 0.5rem)',
+                  transition: 'all 0.3s ease',
+                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                  ':hover': {
+                    background: 'rgba(102, 126, 234, 0.1)',
+                    color: '#667eea'
+                  }
               }}
             >
-              Demo
-            </button>
-            <button
-              onClick={handleReviewsClick}
-              style={{
-                padding: '0.75rem 1.5rem',
-                background: 'none',
-                border: 'none',
-                color: 'var(--text-primary)',
-                fontWeight: '500',
-                cursor: 'pointer',
-                textAlign: 'left',
-                borderRadius: '0.5rem',
-                fontSize: '1rem'
-              }}
-            >
-              Reviews
-            </button>
+                Our Story
+            </Link>
             <a 
               href="https://chromewebstore.google.com/detail/bettercanvas/cndibmoanboadcifjkjbdpjgfedanolh"
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMobileMenu}
-              className="btn btn-primary"
-              style={{ 
-                margin: '0.5rem 1.5rem',
-                fontSize: '0.9rem',
-                padding: '0.75rem 1.5rem',
-                textAlign: 'center'
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.375rem',
+                margin: 'clamp(0.4rem, 1.5vw, 0.75rem) clamp(0.75rem, 2.5vw, 1rem)',
+                padding: 'clamp(0.6rem, 2vw, 0.8rem) clamp(1.2rem, 3.5vw, 1.6rem)',
+                fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                fontWeight: '600',
+                background: 'var(--primary-gradient)',
+                color: 'white',
+                borderRadius: 'clamp(1rem, 3vw, 1.5rem)',
+                textDecoration: 'none',
+                textAlign: 'center',
+                boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)'
               }}
             >
               Get Extension
             </a>
           </div>
         </div>
+        </>
       )}
 
       {/* Demo Modal */}
