@@ -209,11 +209,12 @@ function Hero() {
                   background: 'transparent',
                   color: 'white',
                   border: '2px solid rgba(255, 255, 255, 0.3)',
-                  borderRadius: '50px', // Pill shaped like reference
+                  borderRadius: '50px',
                   textDecoration: 'none',
                   transition: 'all 0.3s ease',
                   cursor: 'pointer',
-                  minHeight: '52px'
+                  minHeight: '52px',
+                  zIndex: 2
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.background = 'rgba(255, 255, 255, 0.1)'
@@ -546,6 +547,7 @@ function Hero() {
           background: 'rgba(0,0,0,0.9)',
           zIndex: 10000,
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           padding: 'clamp(1rem, 4vw, 2rem)',
@@ -553,11 +555,22 @@ function Hero() {
         }}
         onClick={() => setShowDemoModal(false)}
       >
+        <h2 style={{
+          fontFamily: 'var(--font-serif)',
+          fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+          color: 'white',
+          marginBottom: 'clamp(1.5rem, 3vw, 2rem)',
+          textAlign: 'center',
+          fontWeight: '700'
+        }}>
+          Upgrade your Canvas today!
+        </h2>
+        
         <div style={{
           position: 'relative',
-          maxWidth: '500px',
+          maxWidth: '300px',
           width: '100%',
-          height: 'clamp(500px, 80vh, 700px)',
+          height: isMobile ? '700px' : '800px',
           background: 'black',
           borderRadius: 'var(--radius-xl)',
           overflow: 'hidden',
@@ -591,6 +604,9 @@ function Hero() {
           <iframe
             src="https://www.tiktok.com/embed/v2/7486339714144914695"
             style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
               width: '100%',
               height: '100%',
               border: 'none',

@@ -8,87 +8,84 @@ const SchoolLogos = () => {
   const schools = [
     {
       name: 'Harvard University',
-      logo: '/images/schools/harvard.png',
+      logo: '/images/schools/Harvard_University_coat_of_arms.svg.png',
       alt: 'Harvard University Logo'
     },
     {
-      name: 'Stanford University',
-      logo: '/images/schools/stanford.png',
-      alt: 'Stanford University Logo'
-    },
-    {
-      name: 'MIT',
-      logo: '/images/schools/mit.png',
-      alt: 'MIT Logo'
-    },
-    {
-      name: 'UC Berkeley',
-      logo: '/images/schools/berkeley.png',
-      alt: 'UC Berkeley Logo'
-    },
-    {
       name: 'Yale University',
-      logo: '/images/schools/yale.png',
+      logo: '/images/schools/Yale-Logo.png',
       alt: 'Yale University Logo'
     },
     {
-      name: 'Princeton University',
-      logo: '/images/schools/princeton.png',
-      alt: 'Princeton University Logo'
-    },
-    {
-      name: 'Columbia University',
-      logo: '/images/schools/columbia.png',
-      alt: 'Columbia University Logo'
-    },
-    {
-      name: 'Cornell University',
-      logo: '/images/schools/cornell.png',
-      alt: 'Cornell University Logo'
-    },
-    {
       name: 'UCLA',
-      logo: '/images/schools/ucla.png',
+      logo: '/images/schools/University_of_California,_Los_Angeles_logo.png',
       alt: 'UCLA Logo'
     },
     {
-      name: 'USC',
-      logo: '/images/schools/usc.png',
-      alt: 'USC Logo'
+      name: 'University of Texas',
+      logo: '/images/schools/0_Texas-Longhorns-01.png',
+      alt: 'University of Texas Logo'
     },
     {
-      name: 'University of Michigan',
-      logo: '/images/schools/michigan.png',
-      alt: 'University of Michigan Logo'
+      name: 'Texas A&M University',
+      logo: '/images/schools/Texas_A&M_University_logo.svg.png',
+      alt: 'Texas A&M University Logo'
     },
     {
-      name: 'NYU',
-      logo: '/images/schools/nyu.png',
-      alt: 'NYU Logo'
+      name: 'Arizona State University',
+      logo: '/images/schools/ASU-logo.png',
+      alt: 'Arizona State University Logo'
+    },
+    {
+      name: 'University of Wisconsin',
+      logo: '/images/schools/Wisconsin_Badgers_logo.svg.png',
+      alt: 'University of Wisconsin Logo'
     }
   ]
+
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768)
+  
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  React.useEffect(() => {
+    const style = document.createElement('style')
+    style.textContent = `
+      @keyframes scrollLogos {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-50% - clamp(2rem, 4vw, 3rem))); }
+      }
+    `
+    document.head.appendChild(style)
+    return () => document.head.removeChild(style)
+  }, [])
 
   return React.createElement('section', {
     style: {
       position: 'relative',
       width: '100%',
       overflow: 'hidden',
-      padding: 'clamp(2rem, 4vw, 3rem) 0',
+      padding: isMobile ? 'clamp(1.5rem, 3vw, 2rem) 0' : 'clamp(2rem, 4vw, 3rem) 0',
       background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)',
       borderTop: '1px solid rgba(102, 126, 234, 0.1)',
-      borderBottom: '1px solid rgba(102, 126, 234, 0.1)'
+      borderBottom: '1px solid rgba(102, 126, 234, 0.1)',
+      height: 'auto',
+      minHeight: 'fit-content'
     }
   },
     React.createElement('div', { className: 'container' },
       React.createElement('div', {
         style: {
           textAlign: 'center',
-          marginBottom: 'clamp(1.5rem, 3vw, 2rem)'
+          marginBottom: isMobile ? '1rem' : 'clamp(1.5rem, 3vw, 2rem)'
         }
       },
         React.createElement('p', {
           style: {
-            fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+            fontSize: isMobile ? '0.875rem' : 'clamp(0.875rem, 2vw, 1rem)',
             color: 'var(--text-secondary)',
             fontWeight: '600'
           }
@@ -97,44 +94,61 @@ const SchoolLogos = () => {
     ),
     React.createElement('div', {
       style: {
+        position: 'relative',
+        width: '100%',
+        overflow: 'hidden',
+        height: isMobile ? '60px' : 'clamp(70px, 10vw, 90px)',
         display: 'flex',
-        animation: 'scroll 30s linear infinite',
-        gap: 'clamp(2rem, 5vw, 4rem)',
-        opacity: 0.8,
-        padding: '0 clamp(1rem, 3vw, 2rem)'
+        alignItems: 'center'
       }
     },
-      [...schools, ...schools].map((school, i) => 
-        React.createElement('div', {
-          key: i,
-          style: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minWidth: 'clamp(80px, 15vw, 120px)',
-            height: 'clamp(40px, 8vw, 60px)'
-          }
-        },
-          React.createElement('img', {
-            src: school.logo,
-            alt: school.alt,
+      React.createElement('div', {
+        style: {
+          display: 'flex',
+          gap: isMobile ? '2rem' : 'clamp(3rem, 6vw, 5rem)',
+          animation: `scrollLogos ${isMobile ? '30s' : '45s'} linear infinite`,
+          paddingLeft: isMobile ? '2rem' : 'clamp(3rem, 6vw, 5rem)',
+          alignItems: 'center'
+        }
+      },
+        [...schools, ...schools, ...schools].map((school, i) => 
+          React.createElement('div', {
+            key: i,
             style: {
-              maxWidth: '100%',
-              maxHeight: '100%',
-              objectFit: 'contain',
-              filter: 'grayscale(1) brightness(0.8)',
-              opacity: '0.7',
-              transition: 'all 0.3s ease'
-            },
-            onMouseEnter: (e) => {
-              e.target.style.filter = 'grayscale(0) brightness(1)'
-              e.target.style.opacity = '1'
-            },
-            onMouseLeave: (e) => {
-              e.target.style.filter = 'grayscale(1) brightness(0.8)'
-              e.target.style.opacity = '0.7'
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minWidth: isMobile ? '100px' : 'clamp(120px, 18vw, 160px)',
+              height: isMobile ? '50px' : 'clamp(65px, 9vw, 85px)',
+              flexShrink: 0,
+              padding: isMobile ? '8px' : '10px'
             }
-          })
+          },
+            React.createElement('img', {
+              src: school.logo,
+              alt: school.alt,
+              style: {
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'contain',
+                filter: 'grayscale(1) brightness(0.8)',
+                opacity: '0.7',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: 'scale(1)',
+                willChange: 'transform, filter, opacity'
+              },
+              onMouseEnter: (e) => {
+                e.target.style.filter = 'grayscale(0) brightness(1.1)'
+                e.target.style.opacity = '1'
+                e.target.style.transform = isMobile ? 'scale(1.1)' : 'scale(1.2)'
+              },
+              onMouseLeave: (e) => {
+                e.target.style.filter = 'grayscale(1) brightness(0.8)'
+                e.target.style.opacity = '0.7'
+                e.target.style.transform = 'scale(1)'
+              }
+            })
+          )
         )
       )
     )
@@ -214,16 +228,18 @@ const TikTokGrid = () => {
               overflow: 'hidden',
               boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
               transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              maxWidth: isMobile ? '100%' : 'none',
+              maxWidth: isMobile ? '300px' : '325px',
+              height: isMobile ? '680px' : '780px',
               margin: '0 auto',
-              '@media (max-width: 480px)': {
-                maxWidth: '280px'
-              }
+              position: 'relative'
             }
           },
             React.createElement('iframe', {
               src: `https://www.tiktok.com/embed/v2/${videoId}`,
               style: {
+                position: 'absolute',
+                top: 0,
+                left: 0,
                 width: '100%',
                 height: '100%',
                 border: 'none'
