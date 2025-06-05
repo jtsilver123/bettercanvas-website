@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    open: true
+    // Avoid auto-opening the browser in environments without a GUI
+    open: false
   }
-}) 
+})
