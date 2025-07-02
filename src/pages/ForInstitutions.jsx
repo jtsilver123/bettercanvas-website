@@ -308,10 +308,11 @@ const ForInstitutions = () => {
           }}></div>
           <h2 className="section__title" style={{ 
             color: '#ffffff',
-            fontSize: '2.75rem',
+            fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
             marginBottom: '1.5rem',
             fontWeight: '700',
-            position: 'relative'
+            position: 'relative',
+            whiteSpace: 'nowrap'
           }}>See BetterCanvas Pro in Action</h2>
           <p className="section__subtitle" style={{ 
             color: 'rgba(255, 255, 255, 0.9)',
@@ -359,9 +360,10 @@ const ForInstitutions = () => {
               marginTop: '4rem',
               display: 'flex',
               justifyContent: 'center',
-              gap: '5rem',
+              gap: 'clamp(1rem, 3vw, 5rem)',
               textAlign: 'center',
-              flexWrap: 'wrap'
+              flexWrap: 'wrap',
+              flexDirection: 'row'
             }}>
               <div className="stat">
                 <span className="stat__number" style={{ 

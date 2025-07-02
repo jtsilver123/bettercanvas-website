@@ -409,6 +409,11 @@ h1 {
     padding: 2rem 1rem;
   }
 
+  .section--cta .stats {
+    flex-direction: row !important;
+    gap: 1rem !important;
+  }
+
   .grid,
   .features {
     grid-template-columns: 1fr;
@@ -466,5 +471,10 @@ h1 {
   
   .step {
     padding: 1.5rem;
+  }
+
+  .section--cta .stats {
+    flex-direction: row !important;
+    gap: 0.5rem !important;
   }
 } 
