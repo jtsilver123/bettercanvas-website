@@ -576,9 +576,9 @@ function Hero() {
         
         <div style={{
           position: 'relative',
-          maxWidth: '300px',
+          maxWidth: isMobile ? '350px' : '500px',
           width: '100%',
-          height: isMobile ? '700px' : '800px',
+          height: isMobile ? '750px' : '900px',
           background: 'black',
           borderRadius: 'var(--radius-xl)',
           overflow: 'hidden',
