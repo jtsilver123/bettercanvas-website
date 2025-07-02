@@ -310,6 +310,15 @@ p {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* Grid Layouts */
 .grid {
   display: grid;

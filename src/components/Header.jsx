@@ -312,42 +312,57 @@ function Header() {
               left: 0,
               right: 0,
               bottom: 0,
-              background: 'rgba(0, 0, 0, 0.3)',
-              zIndex: 998
+              background: 'rgba(0, 0, 0, 0.2)',
+              zIndex: 998,
+              animation: 'fadeIn 0.2s ease-out'
             }}
           />
         <div className="mobile-nav" style={{
             position: 'fixed',
-            top: 'calc(3rem + 57px)',
-          left: 0,
-          right: 0,
+            top: 'calc(3rem + 48px)',
+            left: '1rem',
+            right: '1rem',
             background: 'white',
-            padding: '0.5rem 0',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+            padding: '1rem 0',
+            borderRadius: '1rem',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08)',
             zIndex: 999,
-            maxHeight: 'calc(100vh - 3rem - 57px)',
-            overflowY: 'auto'
+            maxHeight: 'calc(100vh - 3rem - 48px - 2rem)',
+            overflowY: 'auto',
+            border: '1px solid rgba(0, 0, 0, 0.08)',
+            animation: 'slideDown 0.3s ease-out'
         }}>
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 'clamp(0.25rem, 1.5vw, 0.5rem)', // Smaller gaps
-            padding: '0 clamp(0.75rem, 2.5vw, 1rem)'
+            gap: '0.25rem',
+            padding: '0 1rem'
           }}>
               <Link 
                 to="/" 
                 onClick={handleNavClick}
                 style={{
-                  padding: 'clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 2.5vw, 1rem)',
+                  padding: '0.75rem 1rem',
                   textDecoration: 'none',
                   color: location.pathname === '/' ? '#667eea' : 'var(--text-primary)',
                   fontWeight: location.pathname === '/' ? '600' : '500',
-                  borderRadius: 'clamp(0.375rem, 1vw, 0.5rem)',
-                  transition: 'all 0.3s ease',
-                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
-                  ':hover': {
-                    background: 'rgba(102, 126, 234, 0.1)',
-                    color: '#667eea'
+                  borderRadius: '0.75rem',
+                  transition: 'all 0.2s ease',
+                  fontSize: '0.95rem',
+                  display: 'block',
+                  background: location.pathname === '/' ? 'rgba(102, 126, 234, 0.1)' : 'transparent',
+                  border: location.pathname === '/' ? '1px solid rgba(102, 126, 234, 0.2)' : '1px solid transparent'
+                }}
+                onMouseEnter={(e) => {
+                  if (location.pathname !== '/') {
+                    e.target.style.background = 'rgba(102, 126, 234, 0.05)'
+                    e.target.style.borderColor = 'rgba(102, 126, 234, 0.1)'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (location.pathname !== '/') {
+                    e.target.style.background = 'transparent'
+                    e.target.style.borderColor = 'transparent'
                   }
                 }}
               >
@@ -356,56 +371,89 @@ function Header() {
               <Link 
                 to="/for-institutions" 
                 onClick={handleNavClick}
-              style={{
-                padding: 'clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 2.5vw, 1rem)',
-                textDecoration: 'none',
+                style={{
+                  padding: '0.75rem 1rem',
+                  textDecoration: 'none',
                   color: location.pathname === '/for-institutions' ? '#667eea' : 'var(--text-primary)',
                   fontWeight: location.pathname === '/for-institutions' ? '600' : '500',
-                borderRadius: 'clamp(0.375rem, 1vw, 0.5rem)',
-                  transition: 'all 0.3s ease',
-                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
-                  ':hover': {
-                    background: 'rgba(102, 126, 234, 0.1)',
-                    color: '#667eea'
+                  borderRadius: '0.75rem',
+                  transition: 'all 0.2s ease',
+                  fontSize: '0.95rem',
+                  display: 'block',
+                  background: location.pathname === '/for-institutions' ? 'rgba(102, 126, 234, 0.1)' : 'transparent',
+                  border: location.pathname === '/for-institutions' ? '1px solid rgba(102, 126, 234, 0.2)' : '1px solid transparent'
+                }}
+                onMouseEnter={(e) => {
+                  if (location.pathname !== '/for-institutions') {
+                    e.target.style.background = 'rgba(102, 126, 234, 0.05)'
+                    e.target.style.borderColor = 'rgba(102, 126, 234, 0.1)'
                   }
-              }}
-            >
+                }}
+                onMouseLeave={(e) => {
+                  if (location.pathname !== '/for-institutions') {
+                    e.target.style.background = 'transparent'
+                    e.target.style.borderColor = 'transparent'
+                  }
+                }}
+              >
                 For Institutions
               </Link>
               <Link 
                 to="/for-partners" 
                 onClick={handleNavClick}
-              style={{
-                padding: 'clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 2.5vw, 1rem)',
+                style={{
+                  padding: '0.75rem 1rem',
                   textDecoration: 'none',
                   color: location.pathname === '/for-partners' ? '#667eea' : 'var(--text-primary)',
                   fontWeight: location.pathname === '/for-partners' ? '600' : '500',
-                borderRadius: 'clamp(0.375rem, 1vw, 0.5rem)',
-                  transition: 'all 0.3s ease',
-                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
-                  ':hover': {
-                    background: 'rgba(102, 126, 234, 0.1)',
-                    color: '#667eea'
+                  borderRadius: '0.75rem',
+                  transition: 'all 0.2s ease',
+                  fontSize: '0.95rem',
+                  display: 'block',
+                  background: location.pathname === '/for-partners' ? 'rgba(102, 126, 234, 0.1)' : 'transparent',
+                  border: location.pathname === '/for-partners' ? '1px solid rgba(102, 126, 234, 0.2)' : '1px solid transparent'
+                }}
+                onMouseEnter={(e) => {
+                  if (location.pathname !== '/for-partners') {
+                    e.target.style.background = 'rgba(102, 126, 234, 0.05)'
+                    e.target.style.borderColor = 'rgba(102, 126, 234, 0.1)'
                   }
-              }}
-            >
+                }}
+                onMouseLeave={(e) => {
+                  if (location.pathname !== '/for-partners') {
+                    e.target.style.background = 'transparent'
+                    e.target.style.borderColor = 'transparent'
+                  }
+                }}
+              >
                 For Partners
               </Link>
             <Link 
               to="/faq" 
               onClick={handleNavClick}
               style={{
-                padding: 'clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 2.5vw, 1rem)',
+                padding: '0.75rem 1rem',
                 textDecoration: 'none',
-                  color: location.pathname === '/faq' ? '#667eea' : 'var(--text-primary)',
-                  fontWeight: location.pathname === '/faq' ? '600' : '500',
-                borderRadius: 'clamp(0.375rem, 1vw, 0.5rem)',
-                  transition: 'all 0.3s ease',
-                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
-                  ':hover': {
-                    background: 'rgba(102, 126, 234, 0.1)',
-                    color: '#667eea'
-                  }
+                color: location.pathname === '/faq' ? '#667eea' : 'var(--text-primary)',
+                fontWeight: location.pathname === '/faq' ? '600' : '500',
+                borderRadius: '0.75rem',
+                transition: 'all 0.2s ease',
+                fontSize: '0.95rem',
+                display: 'block',
+                background: location.pathname === '/faq' ? 'rgba(102, 126, 234, 0.1)' : 'transparent',
+                border: location.pathname === '/faq' ? '1px solid rgba(102, 126, 234, 0.2)' : '1px solid transparent'
+              }}
+              onMouseEnter={(e) => {
+                if (location.pathname !== '/faq') {
+                  e.target.style.background = 'rgba(102, 126, 234, 0.05)'
+                  e.target.style.borderColor = 'rgba(102, 126, 234, 0.1)'
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (location.pathname !== '/faq') {
+                  e.target.style.background = 'transparent'
+                  e.target.style.borderColor = 'transparent'
+                }
               }}
             >
               FAQ
@@ -414,17 +462,28 @@ function Header() {
                 to="/about" 
               onClick={handleNavClick}
               style={{
-                padding: 'clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 2.5vw, 1rem)',
+                padding: '0.75rem 1rem',
                 textDecoration: 'none',
-                  color: location.pathname === '/about' ? '#667eea' : 'var(--text-primary)',
-                  fontWeight: location.pathname === '/about' ? '600' : '500',
-                borderRadius: 'clamp(0.375rem, 1vw, 0.5rem)',
-                  transition: 'all 0.3s ease',
-                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
-                  ':hover': {
-                    background: 'rgba(102, 126, 234, 0.1)',
-                    color: '#667eea'
-                  }
+                color: location.pathname === '/about' ? '#667eea' : 'var(--text-primary)',
+                fontWeight: location.pathname === '/about' ? '600' : '500',
+                borderRadius: '0.75rem',
+                transition: 'all 0.2s ease',
+                fontSize: '0.95rem',
+                display: 'block',
+                background: location.pathname === '/about' ? 'rgba(102, 126, 234, 0.1)' : 'transparent',
+                border: location.pathname === '/about' ? '1px solid rgba(102, 126, 234, 0.2)' : '1px solid transparent'
+              }}
+              onMouseEnter={(e) => {
+                if (location.pathname !== '/about') {
+                  e.target.style.background = 'rgba(102, 126, 234, 0.05)'
+                  e.target.style.borderColor = 'rgba(102, 126, 234, 0.1)'
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (location.pathname !== '/about') {
+                  e.target.style.background = 'transparent'
+                  e.target.style.borderColor = 'transparent'
+                }
               }}
             >
                 Our Story
@@ -438,17 +497,27 @@ function Header() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.375rem',
-                margin: 'clamp(0.4rem, 1.5vw, 0.75rem) clamp(0.75rem, 2.5vw, 1rem)',
-                padding: 'clamp(0.6rem, 2vw, 0.8rem) clamp(1.2rem, 3.5vw, 1.6rem)',
-                fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                gap: '0.5rem',
+                margin: '0.75rem 1rem',
+                padding: '0.875rem 1.5rem',
+                fontSize: '0.95rem',
                 fontWeight: '600',
                 background: 'var(--primary-gradient)',
                 color: 'white',
-                borderRadius: 'clamp(1rem, 3vw, 1.5rem)',
+                borderRadius: '1rem',
                 textDecoration: 'none',
                 textAlign: 'center',
-                boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)'
+                boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)',
+                transition: 'all 0.2s ease',
+                border: 'none'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-1px)'
+                e.target.style.boxShadow = '0 6px 16px rgba(102, 126, 234, 0.4)'
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)'
+                e.target.style.boxShadow = '0 4px 12px rgba(102, 126, 234, 0.3)'
               }}
             >
               Get Extension
