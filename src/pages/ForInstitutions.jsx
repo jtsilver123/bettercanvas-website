@@ -8,7 +8,7 @@ const ForInstitutions = () => {
       <div className="page-wrapper">
         {/* Hero Section */}
         <section className="page-header" style={{
-          padding: 'clamp(4rem, 8vw, 6rem) 0'
+          padding: 'clamp(2rem, 6vw, 6rem) 0'
         }}>
           <div className="hero__content" style={{ maxWidth: '1400px', margin: '0 auto' }}>
             <span className="badge" style={{
@@ -38,7 +38,12 @@ const ForInstitutions = () => {
               The most powerful Canvas LMS enhancement suite that drives measurable improvements 
               in student engagement, accessibility, and academic outcomes.
             </p>
-            <div className="button-group" style={{ marginTop: '2.5rem', marginBottom: '3rem' }}>
+            <div className="button-group" style={{ 
+              marginTop: '2.5rem', 
+              marginBottom: '3rem',
+              display: 'flex',
+              justifyContent: 'center'
+            }}>
               <a href="https://calendly.com/bettercanvas/30min"
                 className="button button--primary"
                 target="_blank"
@@ -58,6 +63,9 @@ const ForInstitutions = () => {
                   textDecoration: 'none',
                   border: '1px solid rgba(255, 255, 255, 0.2)',
                   cursor: 'pointer',
+                  maxWidth: '280px',
+                  width: 'auto',
+                  justifyContent: 'center',
                   ':hover': {
                     transform: 'translateY(-2px)',
                     boxShadow: '0 8px 15px rgba(0, 0, 0, 0.15)',
@@ -335,6 +343,9 @@ const ForInstitutions = () => {
                 textDecoration: 'none',
                 border: '2px solid transparent',
                 cursor: 'pointer',
+                maxWidth: '320px',
+                width: 'auto',
+                justifyContent: 'center',
                 ':hover': {
                   transform: 'translateY(-2px)',
                   boxShadow: '0 15px 30px rgba(0, 0, 0, 0.15)',
