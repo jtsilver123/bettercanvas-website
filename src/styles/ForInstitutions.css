@@ -390,8 +390,10 @@ h1 {
   }
 
   .stats {
-    flex-direction: column;
-    gap: 2rem;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .cta__features {
@@ -437,6 +439,21 @@ h1 {
 
   .button--large {
     max-width: 320px;
+  }
+
+  .stats {
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat__number {
+    font-size: 2rem !important;
+  }
+
+  .stat__label {
+    font-size: 0.75rem;
   }
 
   .testimonial {
