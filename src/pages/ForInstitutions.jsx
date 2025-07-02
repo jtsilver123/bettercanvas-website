@@ -178,7 +178,7 @@ const ForInstitutions = () => {
               lineHeight: '1.1',
               maxWidth: '1200px',
               margin: '0 auto'
-            }}>Transform Student Success with BetterCanvas Pro</h1>
+            }}>Transform Student Experiences with BetterCanvas</h1>
             <p className="hero__subtitle" style={{
               fontSize: 'clamp(1.2rem, 3.5vw, 1.6rem)',
               opacity: 0.9,
@@ -187,8 +187,7 @@ const ForInstitutions = () => {
               lineHeight: '1.6',
               marginBottom: 'clamp(2.5rem, 4vw, 3.5rem)'
             }}>
-              The most powerful Canvas LMS enhancement suite that drives measurable improvements 
-              in student engagement, accessibility, and academic outcomes.
+              Drive measurable improvements in student engagement, accessibility, and academic outcomes.
             </p>
             <div className="button-group" style={{ 
               marginTop: '2.5rem', 
