@@ -39,8 +39,10 @@ const ForInstitutions = () => {
               in student engagement, accessibility, and academic outcomes.
             </p>
             <div className="button-group" style={{ marginTop: '2.5rem', marginBottom: '3rem' }}>
-              <a href={`mailto:institutions@bettercanvas.org?subject=${encodeURIComponent("Interest in BetterCanvas Pro for our Institution")}&body=${encodeURIComponent("Hi BetterCanvas team,\n\nI'm interested in learning more about BetterCanvas Pro for our institution. We'd love to schedule a demo to see how it can help our students and faculty.\n\nInstitution Name:\nNumber of Students:\nCurrent Canvas Setup:\n\nBest times for a demo:\n\nLooking forward to connecting,\n")}`}
+              <a href="https://calendly.com/bettercanvas/30min"
                 className="button button--primary"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   background: 'white',
                   color: '#667eea',
@@ -314,8 +316,10 @@ const ForInstitutions = () => {
             Join a live demo to see how BetterCanvas Pro can transform your institution's Canvas experience
           </p>
           <div className="cta" style={{ position: 'relative' }}>
-            <a href={`mailto:institutions@bettercanvas.org?subject=${encodeURIComponent("Interest in BetterCanvas Pro for our Institution")}&body=${encodeURIComponent("Hi BetterCanvas team,\n\nI'm interested in learning more about BetterCanvas Pro for our institution. We'd love to schedule a demo to see how it can help our students and faculty.\n\nInstitution Name:\nNumber of Students:\nCurrent Canvas Setup:\n\nBest times for a demo:\n\nLooking forward to connecting,\n")}`}
+            <a href="https://calendly.com/bettercanvas/30min"
               className="button button--primary button--large"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 background: 'white',
                 color: '#667eea',
