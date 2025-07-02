@@ -2,6 +2,158 @@ import React from 'react';
 import '../styles/SharedPages.css';
 import '../styles/ForInstitutions.css';
 
+// School Logos Marquee Component
+const SchoolLogos = () => {
+  const schools = [
+    {
+      name: 'Harvard University',
+      logo: '/images/schools/Harvard_University_coat_of_arms.svg.png',
+      alt: 'Harvard University Logo'
+    },
+    {
+      name: 'Yale University',
+      logo: '/images/schools/Yale-Logo.png',
+      alt: 'Yale University Logo'
+    },
+    {
+      name: 'UCLA',
+      logo: '/images/schools/University_of_California,_Los_Angeles_logo.png',
+      alt: 'UCLA Logo'
+    },
+    {
+      name: 'University of Texas',
+      logo: '/images/schools/0_Texas-Longhorns-01.png',
+      alt: 'University of Texas Logo'
+    },
+    {
+      name: 'Texas A&M University',
+      logo: '/images/schools/Texas_A&M_University_logo.svg.png',
+      alt: 'Texas A&M University Logo'
+    },
+    {
+      name: 'Arizona State University',
+      logo: '/images/schools/ASU-logo.png',
+      alt: 'Arizona State University Logo'
+    },
+    {
+      name: 'University of Wisconsin',
+      logo: '/images/schools/Wisconsin_Badgers_logo.svg.png',
+      alt: 'University of Wisconsin Logo'
+    }
+  ]
+
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768)
+  
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  React.useEffect(() => {
+    const style = document.createElement('style')
+    style.textContent = `
+      @keyframes scrollLogos {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-50% - clamp(2rem, 4vw, 3rem))); }
+      }
+    `
+    document.head.appendChild(style)
+    return () => document.head.removeChild(style)
+  }, [])
+
+  return React.createElement('section', {
+    style: {
+      position: 'relative',
+      width: '100%',
+      overflow: 'hidden',
+      padding: isMobile ? 'clamp(1.5rem, 3vw, 2rem) 0' : 'clamp(2rem, 4vw, 3rem) 0',
+      background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)',
+      borderTop: '1px solid rgba(102, 126, 234, 0.1)',
+      borderBottom: '1px solid rgba(102, 126, 234, 0.1)',
+      height: 'auto',
+      minHeight: 'fit-content'
+    }
+  },
+    React.createElement('div', { className: 'container' },
+      React.createElement('div', {
+        style: {
+          textAlign: 'center',
+          marginBottom: isMobile ? '1rem' : 'clamp(1.5rem, 3vw, 2rem)'
+        }
+      },
+        React.createElement('p', {
+          style: {
+            fontSize: isMobile ? '0.875rem' : 'clamp(0.875rem, 2vw, 1rem)',
+            color: 'var(--text-secondary)',
+            fontWeight: '600'
+          }
+        }, 'Trusted by students at 500+ schools including:')
+      )
+    ),
+    React.createElement('div', {
+      style: {
+        position: 'relative',
+        width: '100%',
+        overflow: 'hidden',
+        height: isMobile ? '60px' : 'clamp(70px, 10vw, 90px)',
+        display: 'flex',
+        alignItems: 'center'
+      }
+    },
+      React.createElement('div', {
+        style: {
+          display: 'flex',
+          gap: isMobile ? '2rem' : 'clamp(3rem, 6vw, 5rem)',
+          animation: `scrollLogos ${isMobile ? '30s' : '45s'} linear infinite`,
+          paddingLeft: isMobile ? '2rem' : 'clamp(3rem, 6vw, 5rem)',
+          alignItems: 'center'
+        }
+      },
+        [...schools, ...schools, ...schools].map((school, i) => 
+          React.createElement('div', {
+            key: i,
+            style: {
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minWidth: isMobile ? '100px' : 'clamp(120px, 18vw, 160px)',
+              height: isMobile ? '50px' : 'clamp(65px, 9vw, 85px)',
+              flexShrink: 0,
+              padding: isMobile ? '8px' : '10px'
+            }
+          },
+            React.createElement('img', {
+              src: school.logo,
+              alt: school.alt,
+              style: {
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'contain',
+                filter: 'grayscale(1) brightness(0.8)',
+                opacity: '0.7',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: 'scale(1)',
+                willChange: 'transform, filter, opacity'
+              },
+              onMouseEnter: (e) => {
+                e.target.style.filter = 'grayscale(0) brightness(1.1)'
+                e.target.style.opacity = '1'
+                e.target.style.transform = isMobile ? 'scale(1.1)' : 'scale(1.2)'
+              },
+              onMouseLeave: (e) => {
+                e.target.style.filter = 'grayscale(1) brightness(0.8)'
+                e.target.style.opacity = '0.7'
+                e.target.style.transform = 'scale(1)'
+              }
+            })
+          )
+        )
+      )
+    )
+  )
+}
+
 const ForInstitutions = () => {
   return (
     <div className="page">
@@ -126,6 +278,9 @@ const ForInstitutions = () => {
           </div>
         </section>
       </div>
+
+      {/* School Logos Marquee */}
+      <SchoolLogos />
 
       <div className="container">
         {/* Outcomes Section */}
