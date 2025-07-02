@@ -4,7 +4,15 @@ function Hero() {
   const [sliderPosition, setSliderPosition] = useState(50)
   const [isDragging, setIsDragging] = useState(false)
   const [showDemoModal, setShowDemoModal] = useState(false)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
   const sliderRef = useRef(null)
+
+  // Add mobile detection
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const handleMouseDown = (e) => {
     setIsDragging(true)
